@@ -7,15 +7,8 @@ Task Segregation
 
 (ALIF's TASK): ["Update User Profile", "View Selling Product", "Update Order Status", "Add Product to Cart", "Dashboard Statistics"]
 
+(HARITH's Task): [- Login, User Registration, View all product, Cancel orders, Ban seller, View all orders ]  
 
 
-Harith
-
-- Login,
-- User Registration,
-- View all product,
-- Cancel orders,
-- Ban seller,
-- View all orders ,
 
 
