@@ -11,14 +11,21 @@ Task Segregation
     ]
 
 (ALIF's TASK): [
-    "Update User Profile",
-    "View Selling Product",
-    "Update Order Status",
-    "Add Product to Cart",
-    "Dashboard Statistics"
+    "Update User Profile", - (User Side)
+    "View Selling Product", - (Seller Side)
+    "Update Order Status", - (Seller Side)
+    "Add Product to Cart", - (User Side)
+    "Dashboard Statistics" - (Admin Side)
     ]
 
-(HARITH's Task): [- Login, User Registration, View all product, Cancel orders, Ban seller, View all orders ]  
+(HARITH's Task): [
+    Login,
+    User Registration,
+    View all product, 
+    Cancel orders,
+    Ban seller,
+    View all orders
+    ]  
 
 
 
