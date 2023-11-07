@@ -24,3 +24,6 @@ Cancel orders (Harith)
 Dashboard statistic (Alif)
 Ban seller (Harith)
 View all orders (Harith)
+
+
+(ALIF's TASK): ["Update User Profile", "View Selling Product", "Update Order Status", "Add Product to Cart", "Dashboard Statistics"]
