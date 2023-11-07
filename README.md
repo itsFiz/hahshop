@@ -18,23 +18,8 @@ Task Segregation
     "Dashboard Statistics"
     ]
 
-User Registration (Harith)
-Login (Harith)
-Update user Profile (Alif)
+(HARITH's Task): [- Login, User Registration, View all product, Cancel orders, Ban seller, View all orders ]  
 
-View selling product (Alif)
-(Hafiz)
-Update order status (Alif)
 
--Buyer
-View all product (Harith)
-Add products to cart (Alif)
-
-Cancel orders (Harith)
-
--Admin
-Dashboard statistic (Alif)
-Ban seller (Harith)
-View all orders (Harith)
 
 
