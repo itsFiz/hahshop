@@ -2,22 +2,21 @@
 
 Task Segregation
 
+Hafiz - Add new product, Update product details,
+Search product,View item in cart, View orders history
+
 User Registration (Harith)
 Login (Harith)
 Update user Profile (Alif)
 
--Seller
-Add new product (Hafiz)
 View selling product (Alif)
-Update product details (Hafiz)
+(Hafiz)
 Update order status (Alif)
 
 -Buyer
-Search product (Hafiz)
 View all product (Harith)
 Add products to cart (Alif)
-View item in cart (Hafiz)
-View orders history (Hafiz)
+
 Cancel orders (Harith)
 
 -Admin
