@@ -1,0 +1,46 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  box-shadow: 0 1px 3px -2px black;
+}
+
+.navlogo {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: left;
+  gap: 5px;
+}
+
+.navlogo p {
+  font-size: 3.5rem;
+  color: #2d5aa9;
+  margin-top: 0;
+  font-family: 'Orbitron';
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 50px;
+  color: #171717;
+  font-size: 20px;
+}
+
+.nav-menu li {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  cursor: pointer;
+}
+
+.nav-menu hr {
+  border: none;
+  width: 80%;
+  height: 3px;
+  border-radius: 10px;
+  background: red;
+}
