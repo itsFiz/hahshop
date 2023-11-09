@@ -13,7 +13,6 @@ const NavBar = () => {
           className="enlarged-image"
           alt="logo"
         ></img>
-        <img src="https://i.imgur.com/PgjIp0N.png"></img>
       </div>
       <ul className="nav-menu">
         <li>
