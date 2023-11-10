@@ -1,27 +1,43 @@
 package com.ecommerce.main.Model;
 
+import java.math.BigDecimal;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
+@Data
 @Entity
-@Setter
-@Getter
-@NoArgsConstructor
-
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer product_id;
+    private int id;
+
     private String name;
+
     private String description;
-    private String price;
-    private String imageUrl;
-    private String inventory_Num;
+
+    private BigDecimal price;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    private int quantity;
+
+    private String status;
+
+    @ManyToOne
+    @JoinColumn(name = "seller_user_id")
+    private User seller;
+
+    private String image;
+
+
 }
