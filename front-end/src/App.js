@@ -20,6 +20,7 @@ import NavBar from './components/NavBar'
 import ShoppingCart from './components/ShoppingCart'
 import Header from './NavbarComponent/Header'
 import UserLoginForm from "./UserComponent/UserLoginForm";
+import UserRegister from "./UserComponent/UserRegister";
 
 
 
@@ -45,6 +46,7 @@ function App() {
               <Route path="/bar" element={<Bar />} />
               <Route path="/line" element={<Line />} />
               <Route path="/login" element={<UserLoginForm />} />
+              <Route path="/register-user" element={<UserRegister/>} />
             </Routes>
           </main>
         </div>
