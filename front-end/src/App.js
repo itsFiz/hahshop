@@ -1,17 +1,30 @@
 // import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ProductCards from './glassmorphism/ProductCards'
 import UploadFile from './UploadFile'
 import NavBar from './components/NavBar'
 import ShoppingCart from './components/ShoppingCart'
 import Header from './NavbarComponent/Header'
-
-
+import VideoBackground from './components/VideoBackground'
 
 function App() {
   return (
     <div>
-      <NavBar></NavBar>
+      <Router>
+        <div>
+          <NavBar />
+          <Routes>
+            {' '}
+            {/* Change this line */}
+            <Route path="/" element={<VideoBackground />} />{' '}
+            {/* Change this line */}
+            {/* Add more routes for other sections of your landing page */}
+          </Routes>{' '}
+          {/* Change this line */}
+        </div>
+      </Router>
+
       {/* <ProductCards></ProductCards> */}
       {/* <NavBar></NavBar> */}
       {/* <UploadFile></UploadFile>
