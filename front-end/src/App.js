@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./Adminside/pages/global/TopBar";
@@ -13,7 +12,6 @@ import { ColorModeContext, useMode } from "./theme";
 import Allorders from "./Adminside/pages/orders/Allorder";
 import Allproduct from "./Adminside/pages/product/Allproduct";
 import Allseller from "./Adminside/pages/seller/Allseller";
-=======
 // import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 import ProductCards from './glassmorphism/ProductCards'
@@ -23,14 +21,12 @@ import ShoppingCart from './components/ShoppingCart'
 import Header from './NavbarComponent/Header'
 
 
->>>>>>> da4aad64d80c50e31d9fb6021b33b80c1c12a2d2
 
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
 
   return (
-<<<<<<< HEAD
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -89,8 +85,3 @@ export default App;
 
     //   </Routes>
     // </Router>
-  )
-}
-
-export default App
->>>>>>> da4aad64d80c50e31d9fb6021b33b80c1c12a2d2
