@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+    position: relative;
+    background-color: black;
+}
+
+.container .card{
+    margin: 30px 150px;
+    
+    position: relative;
+    width: 320px;
+    height: 500px;
+    background: rgba(238, 238, 238, 0.203);
+    border: 1px solid rgba(255, 255, 255, 0.135);
+    backdrop-filter: blur(30px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 2em;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.3 ease;
+}
+
+.container .card img{
+    position: relative;
+    width: 200px;
+}
+
+.contentBox h2{
+color: aliceblue;
+font-weight: 600;
+}
+.contentBox h3{
+    color: aliceblue;
+font-weight: 500;
+
+    }
+    .contentBox h5{
+        color: aliceblue;
+font-weight: 400;
+
+        }
+
+        .container .card:hover{
+            transform: translateY(-10px);
+        }
+
+.container .card a{
+padding: 5px 30px;
+margin-top: 10px;
+border-radius: 1em;
+color: white;
+border: 2px solid white;
+transition: 0.3 ease
+}
+
+.container .card a:hover{
+background-color: aliceblue;
+color: black;
+}
+
+.buy{
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}

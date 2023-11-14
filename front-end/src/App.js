@@ -1,15 +1,21 @@
 // import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
+import ProductCards from './glassmorphism/ProductCards'
 import UploadFile from './UploadFile'
 import NavBar from './components/NavBar'
 import ShoppingCart from './components/ShoppingCart'
+import Header from './NavbarComponent/Header'
+
+
 
 function App() {
   return (
     <div>
       <NavBar></NavBar>
-      <UploadFile></UploadFile>
-      <ShoppingCart></ShoppingCart>
+      {/* <ProductCards></ProductCards> */}
+      {/* <NavBar></NavBar> */}
+      {/* <UploadFile></UploadFile>
+      <ShoppingCart></ShoppingCart> */}
     </div>
 
     // <Router>
