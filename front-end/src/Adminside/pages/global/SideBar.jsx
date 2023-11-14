@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
-import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
+import ProductionQuantityLimitsOutlinedIcon from "@mui/icons-material/ProductionQuantityLimitsOutlined";
+import InventoryOutlinedIcon from "@mui/icons-material/InventoryOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
-import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
+import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
+import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -116,6 +116,14 @@ const Sidebar = () => {
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
+              to="/home"
+              icon={<HomeOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              title="Login"
               to="/"
               icon={<HomeOutlinedIcon />}
               selected={selected}
@@ -132,6 +140,13 @@ const Sidebar = () => {
             <Item
               title="Manage Category"
               to="/category"
+              icon={<Inventory2OutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Manage Category Test"
+              to="/categorytest"
               icon={<Inventory2OutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
