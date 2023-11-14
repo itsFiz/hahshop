@@ -2,7 +2,7 @@ package com.ecommerce.main.Controller;
 
 
 
-import com.ecommerce.main.Dto.*;
+import com.ecommerce.main.dto.*;
 import com.ecommerce.main.Resource.UserResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

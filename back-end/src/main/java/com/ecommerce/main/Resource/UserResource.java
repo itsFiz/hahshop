@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.ecommerce.main.Dto.*;
+import com.ecommerce.main.dto.*;
 import com.ecommerce.main.Exception.UserSaveFailedException;
 import com.ecommerce.main.Model.Address;
 import com.ecommerce.main.Model.User;
@@ -26,9 +26,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
-
-
 
 
 import jakarta.transaction.Transactional;
