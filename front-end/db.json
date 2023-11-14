@@ -1,0 +1,25 @@
+{
+  "shoppingCart": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "price": 19.99,
+      "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/9b26aa8f-0173-409b-b30a-7ce2d88573a4/custom-nike-dunk-low-by-you.png",
+      "quantity": 2
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "price": 24.99,
+      "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/3a1bd50c-dc7e-44f0-ba5f-fa4a5e80e0a9/dunk-high-shoes-7n24PP.png",
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "name": "Product 3",
+      "price": 14.99,
+      "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/5954d4e8-eda0-4044-9c8d-8c4d97fa41da/dunk-low-se-shoes-cz99nt.png",
+      "quantity": 3
+    }
+  ]
+}

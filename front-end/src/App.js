@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./Adminside/pages/global/TopBar";
@@ -12,12 +13,24 @@ import { ColorModeContext, useMode } from "./theme";
 import Allorders from "./Adminside/pages/orders/Allorder";
 import Allproduct from "./Adminside/pages/product/Allproduct";
 import Allseller from "./Adminside/pages/seller/Allseller";
+=======
+// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+
+import ProductCards from './glassmorphism/ProductCards'
+import UploadFile from './UploadFile'
+import NavBar from './components/NavBar'
+import ShoppingCart from './components/ShoppingCart'
+import Header from './NavbarComponent/Header'
+
+
+>>>>>>> da4aad64d80c50e31d9fb6021b33b80c1c12a2d2
 
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
 
   return (
+<<<<<<< HEAD
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -43,3 +56,41 @@ function App() {
 }
 
 export default App;
+=======
+    <div>
+      <NavBar></NavBar>
+      {/* <ProductCards></ProductCards> */}
+      {/* <NavBar></NavBar> */}
+      {/* <UploadFile></UploadFile>
+      <ShoppingCart></ShoppingCart> */}
+    </div>
+
+    // <Router>
+    //   <Routes>
+    //     <Route path="/" element={<Home />} />
+    //     <Route path="/login" element={<LoginPage />} />
+    //     <Route path="/register" element={<RegisterPage />} />
+    //     {/* USER PAGES */}
+    //     <Route path="/productlisting" element={<ProductListingPage />} />
+    //     <Route path="/productdetails" element={<ProductDetailsPage />} />
+    //     <Route path="/addtocart" element={<CartPage />} />
+    //     <Route path="/checkoutpage" element={<CheckoutPage />} />
+    //     <Route path="/userprofile" element={<UserProfile />} />
+    //     {/* SELLER PAGES */}
+    //     <Route path="/sellerdashboard" element={<SellerDashboard />} />
+    //     <Route path="/productmanagement" element={<ProductManagement />} />
+    //     <Route path="/productmanagement" element={<ProductManagement />} />
+    //     {/* ADMIN PAGES */}
+    //     <Route path="/adminportal" element={<AdminPortal />} />
+    //     <Route path="/adminportal" element={<Seller />} />
+
+    //     {/* EXCEPTION PAGE */}
+    //     <Route path="/exception" element={<Exception />} />
+
+    //   </Routes>
+    // </Router>
+  )
+}
+
+export default App
+>>>>>>> da4aad64d80c50e31d9fb6021b33b80c1c12a2d2
