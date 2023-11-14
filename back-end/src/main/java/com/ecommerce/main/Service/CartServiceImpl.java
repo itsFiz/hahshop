@@ -2,8 +2,8 @@ package com.ecommerce.main.Service;
 
 
 import com.ecommerce.main.Model.Cart;
+import com.ecommerce.main.Model.User;
 import com.ecommerce.main.Repositories.CartRepo;
-import com.ecommerce.main.dao.CartDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

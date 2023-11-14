@@ -1,6 +1,7 @@
 package com.ecommerce.main.Resource;
 
 
+import com.ecommerce.main.Model.Product;
 import com.ecommerce.main.Service.ProductService;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
