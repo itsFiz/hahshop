@@ -1,6 +1,8 @@
 package com.ecommerce.main.Controller;
 
 import com.ecommerce.main.Resource.CartResource;
+import com.ecommerce.main.dto.CartRequestDto;
+import com.ecommerce.main.dto.CartResponseDto;
 import com.ecommerce.main.dto.CommonApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;

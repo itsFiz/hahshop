@@ -1,5 +1,6 @@
 package com.ecommerce.main.dto;
 
+import com.ecommerce.main.Model.Cart;
 import lombok.Data;
 
 import java.math.BigDecimal;
