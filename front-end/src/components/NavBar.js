@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './NavBar.css'
-import { Link } from 'react-scroll'
+// import { Link } from 'react-scroll'
 
 import logo from '../assets/hahlogo.png'
 

@@ -50,16 +50,7 @@ function App() {
     </ColorModeContext.Provider>
   );
 }
-
-export default App;
-=======
-    <div>
-      <NavBar></NavBar>
-      {/* <ProductCards></ProductCards> */}
-      {/* <NavBar></NavBar> */}
-      {/* <UploadFile></UploadFile>
-      <ShoppingCart></ShoppingCart> */}
-    </div>
+export default App
 
     // <Router>
     //   <Routes>
