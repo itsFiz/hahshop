@@ -1,61 +1,50 @@
+
 // import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+
 import ProductCards from './glassmorphism/ProductCards'
 import UploadFile from './UploadFile'
 import NavBar from './components/NavBar'
 import ShoppingCart from './components/ShoppingCart'
 import Header from './NavbarComponent/Header'
+
 import VideoBackground from './components/VideoBackground'
+
+import LoginPage from "./pages/Auth/LoginPage";
+import Categorytest from "./Adminside/pages/category/categorytest";
+import UserLoginForm from "./UserComponent/UserLoginForm";
+import UserRegister from "./UserComponent/UserRegister";
+
+
 
 function App() {
   return (
-    <div>
-      <Router>
-        <div>
-          <NavBar />
-          <Routes>
-            {' '}
-            {/* Change this line */}
-            <Route path="/" element={<VideoBackground />} />{' '}
-            {/* Change this line */}
-            {/* Add more routes for other sections of your landing page */}
-          </Routes>{' '}
-          {/* Change this line */}
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          <Sidebar isSidebar={isSidebar} />
+          <main className="content">
+            <Topbar setIsSidebar={setIsSidebar} />
+            <Routes>
+            <Route path="/" element={<LoginPage/>} />
+              <Route path="/home" element={<Dashboard />} />
+              <Route path="/category" element={<Category/>} />
+              <Route path="/allorder" element={<Allorders/>} />
+              <Route path="/allproduct" element={<Allproduct/>} />          
+              <Route path="/allseller" element={<Allseller/>} />          
+              <Route path="/form" element={<Form />} />
+              <Route path="/bar" element={<Bar />} />
+              <Route path="/line" element={<Line />} />
+            </Routes>
+          </main>
         </div>
-      </Router>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
+  );
 
-      {/* <ProductCards></ProductCards> */}
-      {/* <NavBar></NavBar> */}
-      {/* <UploadFile></UploadFile>
-      <ShoppingCart></ShoppingCart> */}
-    </div>
-
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" element={<Home />} />
-    //     <Route path="/login" element={<LoginPage />} />
-    //     <Route path="/register" element={<RegisterPage />} />
-    //     {/* USER PAGES */}
-    //     <Route path="/productlisting" element={<ProductListingPage />} />
-    //     <Route path="/productdetails" element={<ProductDetailsPage />} />
-    //     <Route path="/addtocart" element={<CartPage />} />
-    //     <Route path="/checkoutpage" element={<CheckoutPage />} />
-    //     <Route path="/userprofile" element={<UserProfile />} />
-    //     {/* SELLER PAGES */}
-    //     <Route path="/sellerdashboard" element={<SellerDashboard />} />
-    //     <Route path="/productmanagement" element={<ProductManagement />} />
-    //     <Route path="/productmanagement" element={<ProductManagement />} />
-    //     {/* ADMIN PAGES */}
-    //     <Route path="/adminportal" element={<AdminPortal />} />
-    //     <Route path="/adminportal" element={<Seller />} />
-
-    //     {/* EXCEPTION PAGE */}
-    //     <Route path="/exception" element={<Exception />} />
-
-    //   </Routes>
-    // </Router>
-  )
 }
 
-export default App
+export default App;
