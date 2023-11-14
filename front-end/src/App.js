@@ -19,6 +19,8 @@ import UploadFile from './UploadFile'
 import NavBar from './components/NavBar'
 import ShoppingCart from './components/ShoppingCart'
 import Header from './NavbarComponent/Header'
+import LoginPage from "./pages/Auth/LoginPage";
+import Categorytest from "./Adminside/pages/category/categorytest";
 
 
 
@@ -35,7 +37,8 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-              <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<LoginPage/>} />
+              <Route path="/home" element={<Dashboard />} />
               <Route path="/category" element={<Category/>} />
               <Route path="/allorder" element={<Allorders/>} />
               <Route path="/allproduct" element={<Allproduct/>} />          
@@ -43,6 +46,7 @@ function App() {
               <Route path="/form" element={<Form />} />
               <Route path="/bar" element={<Bar />} />
               <Route path="/line" element={<Line />} />
+              <Route path="/categorytest" element={<Categorytest/>} />
             </Routes>
           </main>
         </div>

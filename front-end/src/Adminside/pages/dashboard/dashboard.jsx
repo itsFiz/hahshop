@@ -9,6 +9,8 @@ import LineChart from "../../components/LineChart";
 import BarChart from "../../components/Barchart";
 import StatBox from "../../components/StatBox";
 import { usePDF } from "react-to-pdf";
+import SalesBox from "../../components/SalesBox";
+import ProductBox from "../../components/ProductBox";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -60,10 +62,8 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <StatBox 
-            title="RM 431,225"
+          <SalesBox
             subtitle="Sales Obtained"
-    
             icon={
               <PointOfSaleIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -78,8 +78,7 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <StatBox
-            title="325,134"
+          <ProductBox
             subtitle="Product Sold"
             // progress="0.80"
             // increase="+43%"
@@ -97,11 +96,11 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <StatBox
-            title="441"
+          <ProductBox
+            title="134"
             subtitle="New Sellers"
-            // progress="0.30"
-            // increase="+5%"
+            // progress="0.80"
+            // increase="+43%"
             icon={
               <PersonAddIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -117,11 +116,8 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <StatBox
-            title="32,441"
+          <SalesBox
             subtitle="New Users"
-            // progress="0.30"
-            // increase="+5%"
             icon={
               <PersonAddIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
