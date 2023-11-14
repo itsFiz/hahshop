@@ -68,15 +68,12 @@ public class UserController {
     }
 
     @DeleteMapping("delete/seller")
-    @Operation(summary =  "Api to update the user status")
+    @Operation(summary =  "Api to delete seller")
     public ResponseEntity<CommonApiResponse> deleteSeller(@RequestParam("sellerId") int sellerId) {
         return userResource.deleteSeller(sellerId);
     }
 
-    @DeleteMapping("delete/seller/delivery-person")
-    @Operation(summary =  "Api to update the user status")
-    public ResponseEntity<CommonApiResponse> deleteDeliveryPerson(@RequestParam("deliveryId") int deliveryId) {
-        return userResource.deleteDeliveryPerson(deliveryId);
+
     }
 
 }
