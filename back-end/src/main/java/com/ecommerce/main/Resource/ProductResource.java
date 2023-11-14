@@ -1,8 +1,16 @@
 package com.ecommerce.main.Resource;
 
 
+import com.ecommerce.main.Exception.ProductSaveFailedException;
 import com.ecommerce.main.Model.Product;
+import com.ecommerce.main.Model.User;
+import com.ecommerce.main.Service.CategoryService;
 import com.ecommerce.main.Service.ProductService;
+import com.ecommerce.main.Service.StorageService;
+import com.ecommerce.main.Service.UserService;
+import com.ecommerce.main.Utility.Constants;
+import com.ecommerce.main.dto.CommonApiResponse;
+import com.ecommerce.main.dto.ProductResponseDto;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
@@ -247,7 +255,7 @@ public class ProductResource {
         ProductResponseDto response = new ProductResponseDto();
 
         List<Product> products = this.productService
-                .getAllProductByStatusIn(Arrays.asList(ProductStatus.ACTIVE.value()));
+                .getAllProductByStatusIn(Arrays.asList(Constants.ProductStatus.ACTIVE.value()));
 
         if (CollectionUtils.isEmpty(products)) {
             response.setResponseMessage("No products found");
@@ -286,7 +294,7 @@ public class ProductResource {
         }
 
         List<Product> products = this.productService.getAllProductBySellerAndStatusIn(seller,
-                Arrays.asList(ProductStatus.ACTIVE.value()));
+                Arrays.asList(Constants.ProductStatus.ACTIVE.value()));
 
         if (CollectionUtils.isEmpty(products)) {
             response.setResponseMessage("No products found");
@@ -316,7 +324,7 @@ public class ProductResource {
         }
 
         List<Product> products = this.productService.searchProductNameAndStatusIn(productName,
-                Arrays.asList(ProductStatus.ACTIVE.value()));
+                Arrays.asList(Constants.ProductStatus.ACTIVE.value()));
 
         if (CollectionUtils.isEmpty(products)) {
             response.setResponseMessage("No products found");
@@ -355,7 +363,7 @@ public class ProductResource {
         }
 
         List<Product> products = this.productService.searchProductNameAndSellerAndStatusIn(productName, seller,
-                Arrays.asList(ProductStatus.ACTIVE.value()));
+                Arrays.asList(Constants.ProductStatus.ACTIVE.value()));
 
         if (CollectionUtils.isEmpty(products)) {
             response.setResponseMessage("No products found");
