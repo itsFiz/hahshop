@@ -21,6 +21,8 @@ import ShoppingCart from './components/ShoppingCart'
 import Header from './NavbarComponent/Header'
 import LoginPage from "./pages/Auth/LoginPage";
 import Categorytest from "./Adminside/pages/category/categorytest";
+import UserLoginForm from "./UserComponent/UserLoginForm";
+import UserRegister from "./UserComponent/UserRegister";
 
 
 
@@ -46,7 +48,6 @@ function App() {
               <Route path="/form" element={<Form />} />
               <Route path="/bar" element={<Bar />} />
               <Route path="/line" element={<Line />} />
-              <Route path="/categorytest" element={<Categorytest/>} />
             </Routes>
           </main>
         </div>
