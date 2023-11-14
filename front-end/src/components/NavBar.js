@@ -1,11 +1,10 @@
 import React from 'react'
 import './NavBar.css'
-<<<<<<< HEAD
+
 import { Link } from 'react-router-dom'
 import hah from './hahlogoo.png'
-=======
+
 // import { Link } from 'react-scroll'
->>>>>>> 4ad909b13910045c8d5553f2165ab0fc4df5136d
 
 const Navbar = () => {
   return (
