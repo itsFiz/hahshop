@@ -3,6 +3,7 @@ package com.ecommerce.main.Resource;
 
 import com.ecommerce.main.Exception.CartSaveFailedException;
 import com.ecommerce.main.Model.Cart;
+import com.ecommerce.main.Model.Product;
 import com.ecommerce.main.Model.User;
 import com.ecommerce.main.Service.CartService;
 import com.ecommerce.main.Service.ProductService;

@@ -2,6 +2,7 @@ package com.ecommerce.main.Resource;
 
 
 import com.ecommerce.main.Exception.ProductSaveFailedException;
+import com.ecommerce.main.Model.Category;
 import com.ecommerce.main.Model.Product;
 import com.ecommerce.main.Model.User;
 import com.ecommerce.main.Service.CategoryService;
@@ -10,6 +11,8 @@ import com.ecommerce.main.Service.StorageService;
 import com.ecommerce.main.Service.UserService;
 import com.ecommerce.main.Utility.Constants;
 import com.ecommerce.main.dto.CommonApiResponse;
+import com.ecommerce.main.dto.ProductAddRequest;
+import com.ecommerce.main.dto.ProductDetailUpdateRequest;
 import com.ecommerce.main.dto.ProductResponseDto;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
@@ -61,7 +64,7 @@ public class ProductResource {
         }
 
         Product product = ProductAddRequest.toEntity(productDto);
-        product.setStatus(ProductStatus.ACTIVE.value());
+        product.setStatus(Constants.ProductStatus.ACTIVE.value());
 
         User seller = this.userService.getUserById(productDto.getSellerId());
 
@@ -233,7 +236,7 @@ public class ProductResource {
             return new ResponseEntity<CommonApiResponse>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        product.setStatus(ProductStatus.DEACTIVATED.value());
+        product.setStatus(Constants.ProductStatus.DEACTIVATED.value());
 
         Product deletedProduct = this.productService.updateProduct(product);
 
@@ -402,7 +405,7 @@ public class ProductResource {
         }
 
         List<Product> products = this.productService.getAllProductByCategoryAndStatusIn(category,
-                Arrays.asList(ProductStatus.ACTIVE.value()));
+                Arrays.asList(Constants.ProductStatus.ACTIVE.value()));
 
         if (CollectionUtils.isEmpty(products)) {
             response.setResponseMessage("No products found");
@@ -491,7 +494,7 @@ public class ProductResource {
         }
 
         List<Product> products = this.productService.getAllProductBySellerAndCategoryAndStatusIn(seller, category,
-                Arrays.asList(ProductStatus.ACTIVE.value()));
+                Arrays.asList(Constants.ProductStatus.ACTIVE.value()));
 
         if (CollectionUtils.isEmpty(products)) {
             response.setResponseMessage("No products found");

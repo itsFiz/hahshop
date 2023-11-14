@@ -41,7 +41,7 @@ public class EcommerceBackendApplication implements CommandLineRunner {
 			user.setEmailId("demo.admin@demo.com");
 			user.setPassword(passwordEncoder.encode("123456"));
 			user.setRole(Constants.UserRole.ROLE_ADMIN.value());
-			user.setStatus(UserStatus.ACTIVE.value());
+			user.setStatus(Constants.UserStatus.ACTIVE.value());
 
 			this.userService.addUser(user);
 
