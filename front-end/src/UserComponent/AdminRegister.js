@@ -18,9 +18,6 @@ const AdminRegister = () => {
   const admin_jwtToken = sessionStorage.getItem('admin-jwtToken');
 
   const [registerRequest, setRegisterRequest] = useState({});
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState('');
-  const [snackbarSeverity, setSnackbarSeverity] = useState('success');
 
   const handleUserInput = (e) => {
     setRegisterRequest({ ...registerRequest, [e.target.name]: e.target.value });

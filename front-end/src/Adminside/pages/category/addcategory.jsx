@@ -144,10 +144,6 @@ function CategoryForm() {
               value={name}
             />
           </div>
-
-          {/* Add some spacing here */}
-          <Box mt={2} />
-
           <div className="mb-3">
             <label htmlFor="description" className="form-label">
               <b>Category Description</b>
@@ -163,9 +159,6 @@ function CategoryForm() {
               value={description}
             />
           </div>
-
-          {/* Add more spacing if needed */}
-          <Box mt={2} />
 
           <div className="d-flex aligns-items-center justify-content-center mb-2">
             <Button
