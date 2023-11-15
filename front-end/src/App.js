@@ -1,20 +1,12 @@
 
 // import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
 
 import ProductCards from './glassmorphism/ProductCards'
 import UploadFile from './UploadFile'
 import NavBar from './components/NavBar'
 import ShoppingCart from './components/ShoppingCart'
 import Header from './NavbarComponent/Header'
-
-import VideoBackground from './components/VideoBackground'
-
 import LoginPage from "./pages/Auth/LoginPage";
-import UserLoginForm from "./UserComponent/UserLoginForm";
-import UserRegister from "./UserComponent/UserRegister";
 
 
 
@@ -43,7 +35,6 @@ function App() {
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
-
 }
 
 export default App;
