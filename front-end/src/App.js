@@ -20,7 +20,6 @@ import NavBar from './components/NavBar'
 import ShoppingCart from './components/ShoppingCart'
 import Header from './NavbarComponent/Header'
 import LoginPage from "./pages/Auth/LoginPage";
-import Categorytest from "./Adminside/pages/category/categorytest";
 import UserLoginForm from "./UserComponent/UserLoginForm";
 import UserRegister from "./UserComponent/UserRegister";
 
@@ -39,7 +38,7 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-            <Route path="/" element={<LoginPage/>} />
+            <Route path="/" element={<UserLoginForm/>} />
               <Route path="/home" element={<Dashboard />} />
               <Route path="/category" element={<Category/>} />
               <Route path="/allorder" element={<Allorders/>} />

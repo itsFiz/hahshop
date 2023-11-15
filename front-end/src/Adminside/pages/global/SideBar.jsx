@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -37,6 +37,20 @@ const Sidebar = () => {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+  // added
+  const location = useLocation();
+
+  useEffect(() => {
+    const storedSelected = sessionStorage.getItem("selected");
+    if (storedSelected) {
+      setSelected(storedSelected);
+    }
+  }, [location.pathname]);
+
+  const handleSelect = (title) => {
+    setSelected(title);
+    sessionStorage.setItem("selected", title);
+  };
 
   return (
     <Box
@@ -119,7 +133,7 @@ const Sidebar = () => {
               to="/home"
               icon={<HomeOutlinedIcon />}
               selected={selected}
-              setSelected={setSelected}
+              setSelected={handleSelect}
             />
 
             <Item
@@ -127,7 +141,7 @@ const Sidebar = () => {
               to="/"
               icon={<HomeOutlinedIcon />}
               selected={selected}
-              setSelected={setSelected}
+              setSelected={handleSelect}
             />
 
             <Typography
@@ -142,28 +156,21 @@ const Sidebar = () => {
               to="/category"
               icon={<Inventory2OutlinedIcon />}
               selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Manage Category Test"
-              to="/categorytest"
-              icon={<Inventory2OutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
+              setSelected={handleSelect}
             />
             <Item
               title="View All Orders"
               to="/allorder"
               icon={<ProductionQuantityLimitsOutlinedIcon />}
               selected={selected}
-              setSelected={setSelected}
+              setSelected={handleSelect}
             />
             <Item
               title="View All Products"
               to="/allproduct"
               icon={<InventoryOutlinedIcon />}
               selected={selected}
-              setSelected={setSelected}
+              setSelected={handleSelect}
             />
 
             <Typography
@@ -178,14 +185,14 @@ const Sidebar = () => {
               to="/form"
               icon={<AdminPanelSettingsOutlinedIcon />}
               selected={selected}
-              setSelected={setSelected}
+              setSelected={handleSelect}
             />
             <Item
               title="View All Sellers"
               to="/allseller"
               icon={<PersonOutlinedIcon />}
               selected={selected}
-              setSelected={setSelected}
+              setSelected={handleSelect}
             />
             {/* <Item
               title="Calendar"
@@ -214,7 +221,7 @@ const Sidebar = () => {
               to="/bar"
               icon={<BarChartOutlinedIcon />}
               selected={selected}
-              setSelected={setSelected}
+              setSelected={handleSelect}
             />
             {/* <Item
               title="Pie Chart"
@@ -228,7 +235,7 @@ const Sidebar = () => {
               to="/line"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
-              setSelected={setSelected}
+              setSelected={handleSelect}
             />
           </Box>
         </Menu>
