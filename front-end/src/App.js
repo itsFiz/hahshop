@@ -20,6 +20,8 @@ import NavBar from './components/NavBar'
 import ShoppingCart from './components/ShoppingCart'
 import Header from './NavbarComponent/Header'
 import LoginPage from "./pages/Auth/LoginPage";
+import AdminRegister from "./UserComponent/AdminRegister";
+import ViewAllSellers from "./UserComponent/ViewAllSellers";
 
 
 
@@ -40,11 +42,16 @@ function App() {
             <Route path="/" element={<LoginPage/>} />
               <Route path="/home" element={<Dashboard />} />
               <Route path="/category" element={<Category/>} />
+        
               <Route path="/allorder" element={<Allorders/>} />
               <Route path="/allproduct" element={<Allproduct/>} />          
+              <Route path="/allseller" element={<Allseller/>} />          
               <Route path="/form" element={<Form />} />
               <Route path="/bar" element={<Bar />} />
               <Route path="/line" element={<Line />} />
+              <Route path="/adminregister" element={<AdminRegister/>} />
+              <Route path="/viewallseller" element={<ViewAllSellers/>} />
+
             </Routes>
           </main>
         </div>

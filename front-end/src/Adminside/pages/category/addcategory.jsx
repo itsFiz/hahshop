@@ -144,6 +144,10 @@ function CategoryForm() {
               value={name}
             />
           </div>
+
+          
+          <Box mt={2} />
+
           <div className="mb-3">
             <label htmlFor="description" className="form-label">
               <b>Category Description</b>
@@ -159,6 +163,9 @@ function CategoryForm() {
               value={description}
             />
           </div>
+
+          {/* Add more spacing if needed */}
+          <Box mt={2} />
 
           <div className="d-flex aligns-items-center justify-content-center mb-2">
             <Button
@@ -189,7 +196,7 @@ const initialValues = {
 
 export default CategoryForm;
 
-{
+
   /* <Formik
         onSubmit={saveCategory}
         initialValues={initialValues}
@@ -248,4 +255,4 @@ export default CategoryForm;
           </form>
         )}
       </Formik> */
-}
+
