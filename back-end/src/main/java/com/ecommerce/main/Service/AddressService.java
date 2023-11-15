@@ -4,9 +4,6 @@ package com.ecommerce.main.Service;
 
 import com.ecommerce.main.Model.Address;
 
-import java.util.List;
-
-
 
 public interface AddressService {
 

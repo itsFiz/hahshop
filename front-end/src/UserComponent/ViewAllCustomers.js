@@ -116,7 +116,7 @@ const ViewAllCustomers = () => {
                   </TableCell>
                   <TableCell>
                     <b>
-                      {`${customer.address.street}, ${customer.address.city}, ${customer.address.pincode}`}
+                      {`${customer.address.street}, ${customer.address.city}, ${customer.address.postcode}`}
                     </b>
                   </TableCell>
                 </TableRow>

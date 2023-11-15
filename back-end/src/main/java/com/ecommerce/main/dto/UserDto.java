@@ -1,4 +1,4 @@
-package com.ecommerce.main.Dto;
+package com.ecommerce.main.dto;
 
 
 

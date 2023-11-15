@@ -1,24 +1,17 @@
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import Topbar from "./Adminside/pages/global/TopBar";
-import Sidebar from "./Adminside/pages/global/SideBar";
-import Dashboard from "./Adminside/pages/dashboard/dashboard";
-import Category from "./Adminside/pages/category/category";
-import Bar from "./Adminside/pages/bar/bar";
-import Form from "./Adminside/pages/form/form";
-import Line from "./Adminside/pages/line/line";
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import { ColorModeContext, useMode } from "./theme";
-import Allorders from "./Adminside/pages/orders/Allorder";
-import Allproduct from "./Adminside/pages/product/Allproduct";
-import Allseller from "./Adminside/pages/seller/Allseller";
+
 // import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 
 import ProductCards from './glassmorphism/ProductCards'
 import UploadFile from './UploadFile'
 import NavBar from './components/NavBar'
 import ShoppingCart from './components/ShoppingCart'
 import Header from './NavbarComponent/Header'
+
+import VideoBackground from './components/VideoBackground'
+
 import LoginPage from "./pages/Auth/LoginPage";
 import UserLoginForm from "./UserComponent/UserLoginForm";
 import UserRegister from "./UserComponent/UserRegister";
@@ -26,9 +19,6 @@ import UserRegister from "./UserComponent/UserRegister";
 
 
 function App() {
-  const [theme, colorMode] = useMode();
-  const [isSidebar, setIsSidebar] = useState(true);
-
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
@@ -53,30 +43,7 @@ function App() {
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
+
 }
-export default App
 
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" element={<Home />} />
-    //     <Route path="/login" element={<LoginPage />} />
-    //     <Route path="/register" element={<RegisterPage />} />
-    //     {/* USER PAGES */}
-    //     <Route path="/productlisting" element={<ProductListingPage />} />
-    //     <Route path="/productdetails" element={<ProductDetailsPage />} />
-    //     <Route path="/addtocart" element={<CartPage />} />
-    //     <Route path="/checkoutpage" element={<CheckoutPage />} />
-    //     <Route path="/userprofile" element={<UserProfile />} />
-    //     {/* SELLER PAGES */}
-    //     <Route path="/sellerdashboard" element={<SellerDashboard />} />
-    //     <Route path="/productmanagement" element={<ProductManagement />} />
-    //     <Route path="/productmanagement" element={<ProductManagement />} />
-    //     {/* ADMIN PAGES */}
-    //     <Route path="/adminportal" element={<AdminPortal />} />
-    //     <Route path="/adminportal" element={<Seller />} />
-
-    //     {/* EXCEPTION PAGE */}
-    //     <Route path="/exception" element={<Exception />} />
-
-    //   </Routes>
-    // </Router>
+export default App;

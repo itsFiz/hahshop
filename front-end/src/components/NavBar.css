@@ -1,46 +1,56 @@
-.navbar {
+.glassmorphism-navbar {
+  background: linear-gradient(to top, #0077cc, #0077cc);
+  backdrop-filter: blur(10px);
+
+  padding: 20px;
   display: flex;
-  justify-content: space-around;
-  padding: 10px;
-  box-shadow: 0 1px 3px -2px black;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.navlogo {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: left;
-  gap: 5px;
-}
-
-.navlogo p {
-  font-size: 3.5rem;
-  color: #2d5aa9;
-  margin-top: 0;
-  font-family: 'Orbitron';
-}
-
-.nav-menu {
+.navbar-content {
+  margin-left: 100px;
   display: flex;
   align-items: center;
-  list-style: none;
-  gap: 50px;
-  color: #171717;
+}
+
+.navbar-logo {
+  display: flex;
+  transition: 0.3 ease;
+}
+
+.navbar-logo h1 {
+  color: #c2e9fb;
+}
+.navbar-logo:hover {
+  scale: 1.2;
+}
+
+.navbar-content h1 {
+  font-size: 40px;
+}
+
+/* Add styles for navbar-links if needed */
+.navbar-links {
+  margin-left: 700px;
+  display: flex;
+  gap: 40px;
+}
+
+.navbar-links a {
+  color: #c2e9fb; /* Adjust the color as needed */
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
   font-size: 20px;
 }
 
-.nav-menu li {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  cursor: pointer;
+.navbar-links a:hover {
+  color: #a6c0fe;
+  scale: 1.2;
 }
 
-.nav-menu hr {
-  border: none;
-  width: 80%;
-  height: 3px;
-  border-radius: 10px;
-  background: red;
+.navbar-content img {
+  width: 100px;
+  height: auto;
 }

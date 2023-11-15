@@ -1,30 +1,34 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './NavBar.css'
+
+import { Link } from 'react-router-dom'
+import hah from './hahlogoo.png'
+
 // import { Link } from 'react-scroll'
 
-import logo from '../assets/hahlogo.png'
-
-const NavBar = () => {
+const Navbar = () => {
   return (
-    <div className="navbar">
-      <div className="navlogo">
-        <img
-          src="https://i.imgur.com/GfqSxXG.png"
-          className="enlarged-image"
-          alt="logo"
-        ></img>
+    <nav className="glassmorphism-navbar">
+      <div className="navbar-content">
+        <div className="navbar-logo">
+          <h1>
+            <img src={hah}></img>
+          </h1>
+          <h1>
+            HAH <span>SHOP</span>
+          </h1>
+        </div>
+
+        <div className="navbar-links">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/sell">Sell at HaHshop</Link>
+          <Link to="/register">Register</Link>
+          <Link to="/login">Login</Link>
+        </div>
       </div>
-      <ul className="nav-menu">
-        <li>
-          Home
-          <hr />
-        </li>
-        <li>About</li>
-        <li>Contact Us</li>
-      </ul>
-      <div></div>
-    </div>
+    </nav>
   )
 }
 
-export default NavBar
+export default Navbar
