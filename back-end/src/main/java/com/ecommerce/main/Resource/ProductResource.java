@@ -41,7 +41,7 @@ public class ProductResource {
     @Autowired
     private ProductService productService;
 
-    @Autowired
+
     private CategoryService categoryService;
 
     @Autowired

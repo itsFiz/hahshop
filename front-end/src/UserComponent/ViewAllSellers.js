@@ -151,7 +151,7 @@ const ViewAllSellers = () => {
                           ", " +
                           seller.address.city +
                           ", " +
-                          seller.address.pincode}
+                          seller.address.postcode}
                       </b>
                     </TableCell>
                     <TableCell>

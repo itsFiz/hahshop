@@ -28,7 +28,7 @@ const UserRegister = () => {
     phoneNo: "",
     street: "",
     city: "",
-    pincode: "",
+    postcode: "",
     role: "",
   });
 
@@ -214,12 +214,12 @@ const UserRegister = () => {
             </Grid>
             <Grid item xs={6}>
               <TextField
-                label="Pincode"
-                id="pincode"
-                name="pincode"
+                label="PostCode"
+                id="postcode"
+                name="postcode"
                 type="number"
                 onChange={handleUserInput}
-                value={user.pincode}
+                value={user.postcode}
                 fullWidth
               />
             </Grid>
