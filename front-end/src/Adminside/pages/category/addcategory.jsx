@@ -138,6 +138,8 @@ function CategoryForm() {
               id="title"
               variant="outlined"
               style={{ backgroundColor: 'white' }}
+              variant="outlined"
+              style={{ backgroundColor: 'white' }}
               placeholder="Enter category.."
               onChange={(e) => {
                 setName(e.target.value)
@@ -155,6 +157,8 @@ function CategoryForm() {
             <TextField
               fullWidth
               id="description"
+              variant="outlined"
+              style={{ backgroundColor: 'white' }}
               variant="outlined"
               style={{ backgroundColor: 'white' }}
               placeholder="Enter description.."
@@ -196,62 +200,3 @@ const initialValues = {
 }
 
 export default CategoryForm
-
-/* <Formik
-        onSubmit={saveCategory}
-        initialValues={initialValues}
-        validationSchema={checkoutSchema}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleBlur,
-          handleChange,
-          handleSubmit,
-
-        }) => (
-          <form onSubmit={handleSubmit}>
-            <Box
-              display="grid"
-              gap="5px"
-              gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-              sx={{
-                "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
-              }}
-            >
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Category"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.category}
-                name="category"
-                error={!!touched.category && !!errors.category}
-                helperText={touched.category && errors.category}
-                sx={{ gridColumn: "span 2" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Description"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.description}
-                name="description"
-                error={!!touched.description && !!errors.description}
-                helperText={touched.description && errors.description}
-                sx={{ gridColumn: "span 3" }}
-              />
-              <Box display="flex" justifyContent="end" m="10px 20px 20px 10px">
-                <Button type="submit" color="secondary" variant="contained" onClick={saveCategory}>
-                  Create New Category
-                </Button>
-              </Box>
-            </Box>
-          </form>
-        )}
-      </Formik> */
