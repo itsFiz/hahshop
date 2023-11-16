@@ -60,8 +60,7 @@ const AboutUs = () => {
         <br />
         Thank you for choosing HAH Shop as your trusted online shopping
         destination. Explore our selection, connect with our community, and
-        experience the joy that comes with every purchase. Welcome to HAH Shop -
-        Where Every Purchase Sparks Joy!
+        experience the joy that comes with every purchase.
       </b>
     </div>
   )
