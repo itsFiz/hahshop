@@ -226,8 +226,6 @@ const Allorders = () => {
         title="ALL ORDERS"
         subtitle="List of All Orders for Admin Reference"
       />
-      <p>Total Sales: RM {sales}</p>
-      <p>Total Product: {products}</p>
       <Box
         m="0px 0 0 0"
         height="75vh"
@@ -239,14 +237,14 @@ const Allorders = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[300],
+            color: colors.blueAccent[700],
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.blueAccent[100],
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
+            backgroundColor: colors.blueAccent[100],
           },
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",

@@ -6,7 +6,7 @@ import { tokens } from "../../../theme";
 import { mockDataCategory } from "../../data/mockData";
 import Header from "../../components/Header";
 import { TextField } from "@mui/material";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Formik, useFormik } from "formik";
 import * as yup from "yup";
@@ -20,6 +20,9 @@ const Category = () => {
   const colors = tokens(theme.palette.mode);
 
   const [allCategories, setAllCategories] = useState([]);
+
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
 
   const admin_jwtToken = sessionStorage.getItem("admin-jwtToken");
 
@@ -70,8 +73,9 @@ const Category = () => {
             });
 
             setTimeout(() => {
+              //   navigate("/category");
               window.location.reload(true);
-            }, 1000); // Redirect after 3 seconds
+            }, 2000); // Redirect after 3 seconds
           } else if (!res.success) {
             toast.error(res.responseMessage, {
               position: "top-center",
@@ -106,7 +110,87 @@ const Category = () => {
   };
 
   const updateCategory = (category) => {
-    navigate("/admin/category/update", { state: category });
+    navigate("/editcategory", { state: category });
+  };
+
+  const saveCategory = (e) => {
+    let data = { name, description };
+
+    fetch("http://localhost:8080/api/category/add", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + admin_jwtToken,
+      },
+      body: JSON.stringify(data),
+    })
+      .then((result) => {
+        result.json().then((res) => {
+          if (res.success) {
+            toast.success(res.responseMessage, {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+
+            setTimeout(() => {
+              //   navigate("/category");
+              window.location.reload(true);
+            }, 2000); // Redirect after 3 seconds
+          } else if (!res.success) {
+            toast.error(res.responseMessage, {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+            setTimeout(() => {
+              window.location.reload(true);
+            }, 2000); // Redirect after 3 seconds
+          } else {
+            toast.error("It Seems Server is down!!!", {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+            setTimeout(() => {
+              window.location.reload(true);
+            }, 2000); // Redirect after 3 seconds
+          }
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("It seems server is down", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setTimeout(() => {
+          window.location.reload(true);
+        }, 1000); // Redirect after 3 seconds
+      });
+    e.preventDefault();
+  };
+
+  const handleFormSubmit = (values) => {
+    console.log(values);
   };
 
   
@@ -149,17 +233,18 @@ const Category = () => {
       flex: 1,
       renderCell: ({ row }) => (
         <Box display="flex" justifyContent="center" alignItems="center">
-          <Button
+          {/* <Button
             variant="contained"
             color="secondary"
-            onClick={() => handleEdit(row.id)} // Replace handleEdit with your edit action
+            onClick={() => updateCategory(row.id)} // Replace handleEdit with your edit action
           >
             Edit
-          </Button>
+          </Button> */}
           <Button
             variant="contained"
             color="error"
-            onClick={() => handleDelete(row.id)} // Replace handleDelete with your delete action
+            // onClick={() => handleDelete(row.id)} // Replace handleDelete with your delete action
+            onClick={() => deleteCategory(row.id)}
             sx={{ marginLeft: 1 }}
           >
             Delete
@@ -187,7 +272,63 @@ const Category = () => {
       <Header title="CATEGORY" subtitle="Managing the Product Category" />
         {/* FORM TO ADD CATEGORY */}
       <CategoryForm/>
+      {/* <Box>
+      <div className="card-body text-color mt-3">
+        <form>
+          <div className="mb-3">
+            <label htmlFor="title" className="form-label">
+              <b>Category Title</b>
+            </label>
+            <TextField
+              fullWidth
+              id="title"
+              variant="outlined"
+              placeholder="Enter category.."
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+              value={name}
+            />
+          </div>
 
+          
+          <Box mt={2} />
+
+          <div className="mb-3">
+            <label htmlFor="description" className="form-label">
+              <b>Category Description</b>
+            </label>
+            <TextField
+              fullWidth
+              id="description"
+              variant="outlined"
+              placeholder="Enter description.."
+              onChange={(e) => {
+                setDescription(e.target.value);
+              }}
+              value={description}
+            />
+          </div>
+
+          
+          <Box mt={2} />
+
+          <div className="d-flex aligns-items-center justify-content-center mb-2">
+            <Button
+              type="submit"
+              onClick={saveCategory}
+              variant="contained"
+              color="secondary"
+            >
+              Add Category
+            </Button>
+          </div>
+
+          <ToastContainer />
+        </form>
+      </div>
+    </Box>  */}
+  
       {/* TABLE TO DISPLAY CATEGORY */}
       <Box
         m="0 0 0 0"
@@ -200,14 +341,14 @@ const Category = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[300],
+            color: colors.blueAccent[700],
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.blueAccent[100],
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
+            backgroundColor: colors.blueAccent[100],
           },
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
@@ -233,5 +374,13 @@ const Category = () => {
   );
 };
 
+const checkoutSchema = yup.object().shape({
+  category: yup.string().required("required"),
+  description: yup.string().required("required"),
+});
+const initialValues = {
+  category: "",
+  description: "",
+};
 
 export default Category;
