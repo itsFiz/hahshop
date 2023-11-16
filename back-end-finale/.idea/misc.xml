@@ -1,0 +1,15 @@
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+<<<<<<< HEAD:back-end-finale/.idea/misc.xml
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="21" project-jdk-type="JavaSDK" />
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK" />
+>>>>>>> 9574590000e5203c90c6d42ed81f077059a247bf:back-end/.idea/misc.xml
+</project>
