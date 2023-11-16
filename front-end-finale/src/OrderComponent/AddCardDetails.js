@@ -2,7 +2,10 @@ import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
+<<<<<<< HEAD:front-end-finale/src/OrderComponent/AddCardDetails.js
 import { Button} from '@mui/material'
+=======
+>>>>>>> 9574590000e5203c90c6d42ed81f077059a247bf:front-end/src/OrderComponent/AddCardDetails.js
 
 const AddCardDetails = () => {
   const location = useLocation()
@@ -105,8 +108,13 @@ const AddCardDetails = () => {
           <div class="card-body text-color custom-bg">
             <form onSubmit={payForOrder}>
               <div class="mb-3">
+<<<<<<< HEAD:front-end-finale/src/OrderComponent/AddCardDetails.js
                 <label for="name" class="form-label custom-bg">
                   <b class="b-card"> Name on Card</b>
+=======
+                <label for="name" class="form-label">
+                  <b> Name on Card</b>
+>>>>>>> 9574590000e5203c90c6d42ed81f077059a247bf:front-end/src/OrderComponent/AddCardDetails.js
                 </label>
                 <input
                   type="text"
@@ -120,7 +128,11 @@ const AddCardDetails = () => {
               </div>
               <div class="mb-3">
                 <label for="cardNumber" class="form-label">
+<<<<<<< HEAD:front-end-finale/src/OrderComponent/AddCardDetails.js
                 <b class="b-card"> Card Number</b>
+=======
+                  <b> Card Number</b>
+>>>>>>> 9574590000e5203c90c6d42ed81f077059a247bf:front-end/src/OrderComponent/AddCardDetails.js
                 </label>
                 <input
                   type="text"
@@ -135,7 +147,11 @@ const AddCardDetails = () => {
 
               <div class="mb-3">
                 <label for="validThrough" class="form-label">
+<<<<<<< HEAD:front-end-finale/src/OrderComponent/AddCardDetails.js
                 <b class="b-card">Valid Through</b>
+=======
+                  <b>Valid Through</b>
+>>>>>>> 9574590000e5203c90c6d42ed81f077059a247bf:front-end/src/OrderComponent/AddCardDetails.js
                 </label>
                 <input
                   type="text"
@@ -150,7 +166,11 @@ const AddCardDetails = () => {
 
               <div class="mb-3">
                 <label for="cvv" class="form-label">
+<<<<<<< HEAD:front-end-finale/src/OrderComponent/AddCardDetails.js
                 <b class="b-card">CVV</b>
+=======
+                  <b>CVV</b>
+>>>>>>> 9574590000e5203c90c6d42ed81f077059a247bf:front-end/src/OrderComponent/AddCardDetails.js
                 </label>
                 <input
                   type="text"
@@ -163,6 +183,7 @@ const AddCardDetails = () => {
                 />
               </div>
 
+<<<<<<< HEAD:front-end-finale/src/OrderComponent/AddCardDetails.js
               <Button
               type="submit"
               variant="contained"
@@ -171,6 +192,13 @@ const AddCardDetails = () => {
             >
               Pay RM {priceToPay}
             </Button>
+=======
+              <input
+                type="submit"
+                class="btn custom-bg-text bg-color"
+                value={'Pay RM ' + priceToPay}
+              />
+>>>>>>> 9574590000e5203c90c6d42ed81f077059a247bf:front-end/src/OrderComponent/AddCardDetails.js
 
               <ToastContainer />
             </form>

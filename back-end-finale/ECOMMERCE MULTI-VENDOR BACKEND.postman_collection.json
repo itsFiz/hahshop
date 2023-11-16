@@ -52,7 +52,11 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
+<<<<<<< HEAD:back-end-finale/ECOMMERCE MULTI-VENDOR BACKEND.postman_collection.json
 							"raw": "{\r\n  \"firstName\": \"Alif\",\r\n  \"lastName\": \"Danish\",\r\n  \"emailId\": \"alifdanish@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"phoneNo\": \"1234567890\",\r\n  \"role\": \"Customer\",\r\n  \"street\": \"Demo Street\",\r\n  \"city\": \"Demo City\",\r\n  \"postcode\": 123456\r\n}",
+=======
+							"raw": "{\r\n  \"firstName\": \"Sonu\",\r\n  \"lastName\": \"Shaikh\",\r\n  \"emailId\": \"sonu@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"phoneNo\": \"1234567890\",\r\n  \"role\": \"Customer\",\r\n  \"street\": \"Demo Street\",\r\n  \"city\": \"Demo City\",\r\n  \"postcode\": 123456\r\n}",
+>>>>>>> 9574590000e5203c90c6d42ed81f077059a247bf:back-end/ECOMMERCE MULTI-VENDOR BACKEND.postman_collection.json
 							"options": {
 								"raw": {
 									"language": "json"
@@ -108,7 +112,43 @@
 					},
 					"response": []
 				},
+<<<<<<< HEAD:back-end-finale/ECOMMERCE MULTI-VENDOR BACKEND.postman_collection.json
 
+=======
+				{
+					"name": "DELIVERY PERSON REGISTER",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Flipkart Delivery\",\r\n  \"lastName\": \"Flipkart Delivery\",\r\n  \"emailId\": \"flipkartdelivery@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"phoneNo\": \"1239564870\",\r\n  \"role\": \"Delivery\",\r\n  \"street\": \"Demo Street\",\r\n  \"city\": \"Demo City\",\r\n  \"postcode\": 123456,\r\n  \"sellerId\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+>>>>>>> 9574590000e5203c90c6d42ed81f077059a247bf:back-end/ECOMMERCE MULTI-VENDOR BACKEND.postman_collection.json
 				{
 					"name": "ADMIN REGISTER",
 					"protocolProfileBehavior": {
@@ -179,7 +219,42 @@
 					},
 					"response": []
 				},
+<<<<<<< HEAD:back-end-finale/ECOMMERCE MULTI-VENDOR BACKEND.postman_collection.json
 
+=======
+				{
+					"name": "SELLER DELIVERY PERONS",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/user/fetch/seller/delivery-person?sellerId=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"fetch",
+								"seller",
+								"delivery-person"
+							],
+							"query": [
+								{
+									"key": "sellerId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+>>>>>>> 9574590000e5203c90c6d42ed81f077059a247bf:back-end/ECOMMERCE MULTI-VENDOR BACKEND.postman_collection.json
 				{
 					"name": "New Request",
 					"protocolProfileBehavior": {

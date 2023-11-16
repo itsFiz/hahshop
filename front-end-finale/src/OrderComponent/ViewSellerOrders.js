@@ -1,17 +1,36 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
+import { Button, Modal } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
 
-const ViewMyOrders = () => {
-  let user = JSON.parse(sessionStorage.getItem("active-customer"));
-
+const ViewSellerOrders = () => {
+  const seller = JSON.parse(sessionStorage.getItem("active-seller"));
   const [orders, setOrders] = useState([]);
+
+  const seller_jwtToken = sessionStorage.getItem("seller-jwtToken");
+
+  const [orderId, setOrderId] = useState("");
+  const [tempOrderId, setTempOrderId] = useState("");
+
+  const [assignOrderId, setAssignOrderId] = useState("");
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
+
   const [selectedOrderStatus, setSelectedOrderStatus] = useState({});
-  const customer_jwtToken = sessionStorage.getItem("customer-jwtToken");
 
   useEffect(() => {
     const getAllOrders = async () => {
-      const allOrders = await retrieveCart();
+      let allOrders;
+      if (orderId) {
+        allOrders = await retrieveOrdersById();
+      } else {
+        allOrders = await retrieveAllorders();
+      }
+
       if (allOrders) {
         setOrders(allOrders.orders);
         const initialSelectedStatus = {};
@@ -23,18 +42,42 @@ const ViewMyOrders = () => {
     };
 
     getAllOrders();
-  }, []);
+  }, [orderId]);
 
-  const retrieveCart = async () => {
+  const retrieveAllorders = async () => {
     const response = await axios.get(
-      "http://localhost:8080/api/order/fetch/user-wise?userId=" + user.id,
+      "http://localhost:8080/api/order/fetch/seller-wise?sellerId=" + seller.id,
       {
         headers: {
-          Authorization: "Bearer " + customer_jwtToken,
+          Authorization: "Bearer " + seller_jwtToken,
         },
       }
     );
     return response.data;
+  };
+
+  const retrieveOrdersById = async () => {
+    const response = await axios.get(
+      "http://localhost:8080/api/order/fetch?orderId=" + orderId
+    );
+    return response.data;
+  };
+
+  const formatDateFromEpoch = (epochTime) => {
+    const date = new Date(Number(epochTime));
+    const formattedDate = date.toLocaleString();
+
+    return formattedDate;
+  };
+
+  const searchOrderById = (e) => {
+    e.preventDefault();
+    setOrderId(tempOrderId);
+  };
+
+  const assignDelivery = (orderId, e) => {
+    setAssignOrderId(orderId);
+    handleShow();
   };
 
   const handleStatusChange = async (orderId) => {
@@ -54,11 +97,10 @@ const ViewMyOrders = () => {
         updateData,
         {
           headers: {
-            Authorization: "Bearer " + customer_jwtToken,
+            Authorization: "Bearer " + seller_jwtToken,
           },
         }
       );
-      console.log(response.data);
 
       // Update the order status in the local state
       const updatedOrders = orders.map((order) => {
@@ -81,15 +123,9 @@ const ViewMyOrders = () => {
     }
   };
 
-  const formatDateFromEpoch = (epochTime) => {
-    const date = new Date(Number(epochTime));
-    const formattedDate = date.toLocaleString();
-
-    return formattedDate;
-  };
-
   return (
-    <div className="mt-3">
+    <div className="mt-3 pg-background">
+      <div className="pg-blur">
       <div
         className="card form-card ms-2 me-2 mb-5 custom-bg shadow-lg"
         style={{
@@ -97,13 +133,13 @@ const ViewMyOrders = () => {
         }}
       >
         <div
-          className="card-header custom-bg-text text-center bg-color"
+          className="card-header custom-bg-text text-center glass"
           style={{
             borderRadius: "1em",
             height: "50px",
           }}
         >
-          <h2>My Orders</h2>
+          <h2>Seller Orders</h2>
         </div>
         <div
           className="card-body"
@@ -111,9 +147,31 @@ const ViewMyOrders = () => {
             overflowY: "auto",
           }}
         >
-          <div className="table-responsive">
-            <table className="table  text-color text-center">
-              <thead className="table-bordered border-color bg-color custom-bg-text">
+          <form class="row g-3">
+            <div class="col-auto">
+              <input
+                type="text"
+                class="form-control"
+                id="inputPassword2"
+                placeholder="Enter Order Id..."
+                onChange={(e) => setTempOrderId(e.target.value)}
+                value={tempOrderId}
+              />
+            </div>
+            <div class="col-auto">
+              <button
+                type="submit"
+                class="btn bg-color custom-bg-text mb-3"
+                onClick={searchOrderById}
+              >
+                Search
+              </button>
+            </div>
+          </form>
+
+          <div className="table-responsive glass">
+            <table className="table text-color text-center">
+              <thead className="table-bordered border-color glass custom-bg-text">
                 <tr>
                   <th scope="col">Order Id</th>
                   <th scope="col">Product</th>
@@ -122,6 +180,7 @@ const ViewMyOrders = () => {
                   <th scope="col">Seller</th>
                   <th scope="col">Price</th>
                   <th scope="col">Quantity</th>
+                  <th scope="col">Customer</th>
                   <th scope="col">Order Time</th>
                   <th scope="col">Order Status</th>
                   
@@ -164,18 +223,16 @@ const ViewMyOrders = () => {
                         <b>{order.quantity}</b>
                       </td>
                       <td>
+                        <b>{order.user.firstName}</b>
+                      </td>
+                      <td>
                         <b>{formatDateFromEpoch(order.orderTime)}</b>
                       </td>
-<<<<<<< HEAD:front-end-finale/src/OrderComponent/ViewMyOrders.js
-                      <td >
-=======
                       <td>
->>>>>>> 9574590000e5203c90c6d42ed81f077059a247bf:front-end/src/OrderComponent/ViewMyOrders.js
                         <b>{order.status}</b>
                       </td>
                      
                      
-                      
                       <td>
                         <select
                           className="form-select"
@@ -187,16 +244,12 @@ const ViewMyOrders = () => {
                             })
                           }
                         >
-<<<<<<< HEAD:front-end-finale/src/OrderComponent/ViewMyOrders.js
-                          <option value=""> Status</option>
-=======
                           <option value="">Select Status</option>
->>>>>>> 9574590000e5203c90c6d42ed81f077059a247bf:front-end/src/OrderComponent/ViewMyOrders.js
-                          
-                          
+                          <option value="Pending">Pending</option>
+                          <option value="On the way">On the way</option>
                           <option value="Delivered">Delivered</option>
-                          
-                          <option value="Cancelled">Cancelled</option>
+                          <option value="Processing">Processing</option>
+                          <option value="Cancelled">Cancel</option>
                         </select>
                         <button
                           className="btn btn-primary mt-2"
@@ -214,7 +267,8 @@ const ViewMyOrders = () => {
         </div>
       </div>
     </div>
+    </div>
   );
 };
 
-export default ViewMyOrders;
+export default ViewSellerOrders;
