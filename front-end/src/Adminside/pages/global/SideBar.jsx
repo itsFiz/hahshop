@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -13,10 +13,12 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
+import { ToastContainer, toast } from "react-toastify";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  
   return (
     <MenuItem
       active={selected === title}
@@ -37,6 +39,7 @@ const Sidebar = () => {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+  let navigate = useNavigate();
   // added
   const location = useLocation();
 
@@ -50,6 +53,24 @@ const Sidebar = () => {
   const handleSelect = (title) => {
     setSelected(title);
     sessionStorage.setItem("selected", title);
+  };
+
+  const adminLogout = () => {
+    toast.success("logged out!!!", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    sessionStorage.removeItem("active-admin");
+    sessionStorage.removeItem("admin-jwtToken");
+    window.location.reload(true);
+    setTimeout(() => {
+      navigate("/home");
+    }, 2000); // Redirect after 3 seconds
   };
 
   return (
@@ -107,7 +128,7 @@ const Sidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/profile.JPEG`}
+                  src={`../../profile.JPEG`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -130,18 +151,18 @@ const Sidebar = () => {
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
-              to="/home"
+              to="/dashboard"
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={handleSelect}
             />
 
             <Item
-              title="Login"
+              title="Logout"
               to="/"
               icon={<HomeOutlinedIcon />}
               selected={selected}
-              setSelected={handleSelect}
+              setSelected={adminLogout}
             />
 
             <Typography

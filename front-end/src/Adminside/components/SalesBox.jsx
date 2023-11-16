@@ -40,7 +40,7 @@ const SalesBox = ({ subtitle, icon }) => {
 
 
   return (
-    <Box width="100%" m="30px 30px 40px 90px">
+    <Box width="100%" m="30px 30px 40px 50px">
       <Box display="flex" alignItems="center" mt="20px 20px 20px 20px">
         <Typography variant="h5" sx={{ color: colors.greenAccent[500] }}>
           {subtitle}

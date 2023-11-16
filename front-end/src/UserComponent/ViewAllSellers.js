@@ -1,187 +1,177 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Button,
-  Container,
-  Typography,
-  Snackbar,
-} from "@mui/material";
-import MuiAlert from "@mui/material/Alert";
-import { useNavigate } from "react-router-dom";
-
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const ViewAllSellers = () => {
-  const [allSeller, setAllSeller] = useState([]);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
-  const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+  const [allSeller, setAllSeller] = useState([])
 
-  const seller = JSON.parse(sessionStorage.getItem("active-seller"));
-  const admin_jwtToken = sessionStorage.getItem("admin-jwtToken");
+  const seller = JSON.parse(sessionStorage.getItem('active-seller'))
+  const admin_jwtToken = sessionStorage.getItem('admin-jwtToken')
 
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
   useEffect(() => {
     const getAllUsers = async () => {
-      try {
-        const response = await retrieveAllUser();
-        if (response.success) {
-          setAllSeller(response.users);
-        } else {
-          handleSnackbar("Error: " + response.responseMessage, "error");
-        }
-      } catch (error) {
-        handleSnackbar("Error: Server is down", "error");
+      const allUsers = await retrieveAllUser()
+      if (allUsers) {
+        setAllSeller(allUsers.users)
       }
-    };
+    }
 
-    getAllUsers();
-  }, []);
+    getAllUsers()
+  }, [])
 
   const retrieveAllUser = async () => {
     const response = await axios.get(
-      "http://localhost:8080/api/user/fetch/role-wise?role=Seller",
+      'http://localhost:8080/api/user/fetch/role-wise?role=Seller',
       {
         headers: {
-          Authorization: "Bearer " + admin_jwtToken,
+          Authorization: 'Bearer ' + admin_jwtToken, // Replace with your actual JWT token
         },
       }
-    );
-    return response.data;
-  };
+    )
+    console.log(response.data)
+    return response.data
+  }
 
-  const deleteSeller = (userId) => {
-    fetch("http://localhost:8080/api/user/delete/seller?sellerId=" + userId, {
-      method: "DELETE",
+  const deleteSeller = (userId, e) => {
+    fetch('http://localhost:8080/api/user/delete/seller?sellerId=' + userId, {
+      method: 'DELETE',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + admin_jwtToken,
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + admin_jwtToken,
       },
     })
       .then((result) => {
         result.json().then((res) => {
           if (res.success) {
-            handleSnackbar(res.responseMessage, "success");
+            toast.success(res.responseMessage, {
+              position: 'top-center',
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            })
+
             setTimeout(() => {
-              window.location.reload(true);
-            }, 1000); // Reload after 1 second
+              window.location.reload(true)
+            }, 1000) // Redirect after 3 seconds
           } else if (!res.success) {
-            handleSnackbar(res.responseMessage, "error");
+            toast.error(res.responseMessage, {
+              position: 'top-center',
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            })
+            setTimeout(() => {
+              window.location.reload(true)
+            }, 1000) // Redirect after 3 seconds
           }
-        });
+        })
       })
       .catch((error) => {
-        console.error(error);
-        handleSnackbar("Error: Server is down", "error");
-      });
-  };
-
-  const handleSnackbar = (message, severity) => {
-    setSnackbarMessage(message);
-    setSnackbarSeverity(severity);
-    setSnackbarOpen(true);
-  };
-
-  const handleCloseSnackbar = () => {
-    setSnackbarOpen(false);
-  };
+        console.error(error)
+        toast.error('It seems server is down', {
+          position: 'top-center',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+        setTimeout(() => {
+          window.location.reload(true)
+        }, 1000) // Redirect after 3 seconds
+      })
+  }
 
   return (
-    <Container className="mt-3">
-      <Paper
-        elevation={3}
+    <div className="mt-3">
+      <div
         className="card form-card ms-2 me-2 mb-5 custom-bg shadow-lg"
+        style={{
+          height: '45rem',
+        }}
       >
         <div
           className="card-header custom-bg-text text-center bg-color"
           style={{
-            borderRadius: "1em",
-            height: "50px",
+            borderRadius: '1em',
+            height: '50px',
           }}
         >
-          <Typography variant="h4">All Sellers</Typography>
+          <h2>All Sellers</h2>
         </div>
         <div
           className="card-body"
           style={{
-            overflowY: "auto",
+            overflowY: 'auto',
           }}
         >
-          <TableContainer>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>First Name</TableCell>
-                  <TableCell>Last Name</TableCell>
-                  <TableCell>Email Id</TableCell>
-                  <TableCell>Phone No</TableCell>
-                  <TableCell>Address</TableCell>
-                  <TableCell>Action</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {allSeller.map((seller) => (
-                  <TableRow key={seller.id}>
-                    <TableCell>
-                      <b>{seller.firstName}</b>
-                    </TableCell>
-                    <TableCell>
-                      <b>{seller.lastName}</b>
-                    </TableCell>
-                    <TableCell>
-                      <b>{seller.emailId}</b>
-                    </TableCell>
-                    <TableCell>
-                      <b>{seller.phoneNo}</b>
-                    </TableCell>
-                    <TableCell>
-                      <b>
-                        {seller.address.street +
-                          ", " +
-                          seller.address.city +
-                          ", " +
-                          seller.address.postcode}
-                      </b>
-                    </TableCell>
-                    <TableCell>
-                      <Button
-                        onClick={() => deleteSeller(seller.id)}
-                        variant="outlined"
-                        color="error"
-                        size="small"
-                      >
-                        Delete
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <div className="table-responsive">
+            <table className="table  text-color text-center">
+              <thead className="table-bordered border-color bg-color custom-bg-text">
+                <tr>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">Email Id</th>
+                  <th scope="col">Phone No</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {allSeller.map((seller) => {
+                  return (
+                    <tr>
+                      <td>
+                        <b>{seller.firstName}</b>
+                      </td>
+                      <td>
+                        <b>{seller.lastName}</b>
+                      </td>
+                      <td>
+                        <b>{seller.emailId}</b>
+                      </td>
+                      <td>
+                        <b>{seller.phoneNo}</b>
+                      </td>
+                      <td>
+                        <b>
+                          {seller.address.street +
+                            ', ' +
+                            seller.address.postcode +
+                            ', ' +
+                            seller.address.city}
+                        </b>
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => deleteSeller(seller.id)}
+                          className="btn btn-sm bg-color custom-bg-text ms-2"
+                        >
+                          Ban Seller
+                        </button>
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </Paper>
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-      >
-        <Alert onClose={handleCloseSnackbar} severity={snackbarSeverity}>
-          {snackbarMessage}
-        </Alert>
-      </Snackbar>
-    </Container>
-  );
-};
+      </div>
+    </div>
+  )
+}
 
-export default ViewAllSellers;
+export default ViewAllSellers

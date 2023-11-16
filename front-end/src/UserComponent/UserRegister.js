@@ -1,282 +1,263 @@
-import React, { useState, useEffect } from "react";
-import {
-  Button,
-  Container,
-  FormControl,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Paper,
-  Select,
-  Snackbar,
-  TextField,
-  Typography,
-} from "@mui/material";
-import MuiAlert from "@mui/material/Alert";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer, toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 const UserRegister = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const seller = JSON.parse(sessionStorage.getItem("active-seller"));
+  const seller = JSON.parse(sessionStorage.getItem('active-seller'))
 
   const [user, setUser] = useState({
-    firstName: "",
-    lastName: "",
-    emailId: "",
-    password: "",
-    phoneNo: "",
-    street: "",
-    city: "",
-    postcode: "",
-    role: "",
-  });
+    firstName: '',
+    lastName: '',
+    emailId: '',
+    password: '',
+    phoneNo: '',
+    street: '',
+    city: '',
+    postcode: '',
+    role: '',
+  })
 
   useEffect(() => {
-    if (document.URL.indexOf("customer") !== -1) {
-      setUser({ ...user, role: "Customer" });
-    } else if (document.URL.indexOf("delivery") !== -1) {
-      setUser({ ...user, role: "Delivery" });
-    } else if (document.URL.indexOf("seller") !== -1) {
-      setUser({ ...user, role: "Seller" });
+    if (document.URL.indexOf('customer') != -1) {
+      user.role = 'Customer'
+    } else if (document.URL.indexOf('seller') != -1) {
+      user.role = 'Seller'
     }
-  }, []);
+  }, [])
 
   const handleUserInput = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
-
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
-  const [snackbarSeverity, setSnackbarSeverity] = useState("success");
-
-  const handleSnackbarClose = () => {
-    setSnackbarOpen(false);
-  };
-
-  const handleSnackbarOpen = (message, severity) => {
-    setSnackbarMessage(message);
-    setSnackbarSeverity(severity);
-    setSnackbarOpen(true);
-  };
+    setUser({ ...user, [e.target.name]: e.target.value })
+  }
 
   const saveUser = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    let jwtToken;
+    let jwtToken
 
-    if (user.role === "Delivery") {
-      user.sellerId = seller.id;
-      // jwtToken = sessionStorage.getItem("seller-jwtToken"); // Use bank's JWT token for customer register
-    }
-
-    fetch("http://localhost:8080/api/user/register", {
-      method: "POST",
+    fetch('http://localhost:8080/api/user/register', {
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        // Authorization: "Bearer " + jwtToken,
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+
+        //    Authorization: "Bearer " + jwtToken,
       },
       body: JSON.stringify(user),
     })
       .then((result) => {
-        console.log("result", result);
+        console.log('result', result)
         result.json().then((res) => {
           if (res.success) {
-            handleSnackbarOpen(res.responseMessage, "success");
+            toast.success(res.responseMessage, {
+              position: 'top-center',
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            })
 
             setTimeout(() => {
-              navigate("/user/login");
-            }, 1000);
+              navigate('/user/login')
+            }, 1000)
           } else if (!res.success) {
-            handleSnackbarOpen(res.responseMessage, "error");
+            toast.error(res.responseMessage, {
+              position: 'top-center',
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            })
 
             setTimeout(() => {
-              window.location.reload(true);
-            }, 1000); // Redirect after 3 seconds
+              window.location.reload(true)
+            }, 1000) // Redirect after 3 seconds
           } else {
-            handleSnackbarOpen("It seems the server is down", "error");
+            toast.error('It seems server is down', {
+              position: 'top-center',
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            })
 
             setTimeout(() => {
-              window.location.reload(true);
-            }, 1000); // Redirect after 3 seconds
+              window.location.reload(true)
+            }, 1000) // Redirect after 3 seconds
           }
-        });
+        })
       })
       .catch((error) => {
-        console.error(error);
-        handleSnackbarOpen("It seems the server is down", "error");
+        console.error(error)
+        toast.error('It seems server is down', {
+          position: 'top-center',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
         setTimeout(() => {
-          window.location.reload(true);
-        }, 1000); // Redirect after 3 seconds
-      });
-    e.preventDefault();
-  };
+          window.location.reload(true)
+        }, 1000) // Redirect after 3 seconds
+      })
+    e.preventDefault()
+  }
 
   return (
-    <Container
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-      }}
-    >
-      <Paper sx={{ p: 4, width: "50rem" }}>
-        <Typography
-          variant="h5"
-          sx={{
-            backgroundColor: "Blue", // Replace with your background color
-            borderRadius: "1em",
-            height: "45px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
+    <div className='pg-background'>
+      <div className='pg-blur'>
+      <div className="mt-2 d-flex aligns-items-center justify-content-center ms-2 me-2 mb-2">
+        <div
+          className="form-card border-color text-color custom-bg glass"
+          style={{ width: '50rem', marginTop: '50px', paddingTop: '50px' }}
         >
-          Registration Page
-        </Typography>
-        <form onSubmit={saveUser}>
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <TextField
-                label="First Name"
-                id="firstName"
-                name="firstName"
-                onChange={handleUserInput}
-                value={user.firstName}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                label="Last Name"
-                id="lastName"
-                name="lastName"
-                onChange={handleUserInput}
-                value={user.lastName}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                label="Email Id"
-                id="emailId"
-                name="emailId"
-                onChange={handleUserInput}
-                value={user.emailId}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                label="Password"
-                id="password"
-                name="password"
-                type="password"
-                onChange={handleUserInput}
-                value={user.password}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                label="Contact No"
-                id="phoneNo"
-                name="phoneNo"
-                type="number"
-                onChange={handleUserInput}
-                value={user.phoneNo}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                label="Street"
-                id="street"
-                name="street"
-                multiline
-                rows={3}
-                onChange={handleUserInput}
-                value={user.street}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                label="City"
-                id="city"
-                name="city"
-                onChange={handleUserInput}
-                value={user.city}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                label="PostCode"
-                id="postcode"
-                name="postcode"
-                type="number"
-                onChange={handleUserInput}
-                value={user.postcode}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <FormControl fullWidth>
-                <InputLabel htmlFor="role">
-                  <b>User Role</b>
-                </InputLabel>
-                <Select
-                  id="role"
-                  name="role"
-                  value={user.role}
-                  onChange={handleUserInput}
-                >
-                  <MenuItem value="Customer">Customer</MenuItem>
-                  <MenuItem value="Delivery">Delivery Person</MenuItem>
-                  <MenuItem value="Seller">Seller</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-          </Grid>
-
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: "16px 0",
-            }}
-          >
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              size="large"
+          <div className="container-fluid">
+            <div
+              className="card-header custom-bg-text mt-2 d-flex justify-content-center align-items-center"
+              style={{
+                borderRadius: '1em',
+                height: '45px',
+              }}
             >
-              Register User
-            </Button>
-          </div>
-        </form>
-        <Snackbar
-          open={snackbarOpen}
-          autoHideDuration={3000}
-          onClose={handleSnackbarClose}
-        >
-          <MuiAlert
-            elevation={6}
-            variant="filled"
-            onClose={handleSnackbarClose}
-            severity={snackbarSeverity}
-          >
-            {snackbarMessage}
-          </MuiAlert>
-        </Snackbar>
-      </Paper>
-    </Container>
-  );
-};
+              <h2 className="card-title" >Register Here!</h2>
+            </div>
+            <div className="card-body mt-3">
+              <form className="row g-3" onSubmit={saveUser}>
+                <div className="col-md-6 mb-3 text-color">
+                  <label htmlFor="title" className="form-label">
+                    <b>First Name</b>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="firstName"
+                    name="firstName"
+                    onChange={handleUserInput}
+                    value={user.firstName}
+                  />
+                </div>
 
-export default UserRegister;
+                <div className="col-md-6 mb-3 text-color">
+                  <label htmlFor="title" className="form-label">
+                    <b>Last Name</b>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="lastName"
+                    name="lastName"
+                    onChange={handleUserInput}
+                    value={user.lastName}
+                  />
+                </div>
+
+                <div className="col-md-6 mb-3 text-color">
+                  <b>
+                    <label className="form-label">Email Id</label>
+                  </b>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="emailId"
+                    name="emailId"
+                    onChange={handleUserInput}
+                    value={user.emailId}
+                  />
+                </div>
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="quantity" className="form-label">
+                    <b>Password</b>
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    name="password"
+                    onChange={handleUserInput}
+                    value={user.password}
+                  />
+                </div>
+
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="contact" className="form-label">
+                    <b>Contact No</b>
+                  </label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="phoneNo"
+                    name="phoneNo"
+                    onChange={handleUserInput}
+                    value={user.phoneNo}
+                  />
+                </div>
+
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="description" className="form-label">
+                    <b> Street</b>
+                  </label>
+                  <textarea
+                    className="form-control"
+                    id="street"
+                    name="street"
+                    rows="3"
+                    onChange={handleUserInput}
+                    value={user.street}
+                  />
+                </div>
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="price" className="form-label">
+                    <b>City</b>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="city"
+                    name="city"
+                    onChange={handleUserInput}
+                    value={user.city}
+                  />
+                </div>
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="pincode" className="form-label">
+                    <b>Postcode</b>
+                  </label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="postcode"
+                    name="postcode"
+                    onChange={handleUserInput}
+                    value={user.postcode}
+                  />
+                </div>
+
+                <div className="d-flex aligns-items-center justify-content-center">
+                  <input
+                    type="submit"
+                    className="btn bg-color custom-bg-text"
+                    value="Register User"
+                  />
+                </div>
+                <ToastContainer />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  )
+}
+
+export default UserRegister

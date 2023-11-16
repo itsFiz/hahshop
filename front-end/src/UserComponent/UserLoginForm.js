@@ -1,205 +1,195 @@
-import React, { useState } from "react";
-import {
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  Snackbar,
-  TextField,
-  Typography,
-  Container,
-  Paper,
-  Box
-} from "@mui/material";
-import { Alert } from "@mui/lab";
-
-import { useNavigate } from "react-router-dom";
-
-
+import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { useNavigate } from 'react-router-dom'
 
 const UserLoginForm = () => {
-  const navigate = useNavigate();
+  let navigate = useNavigate()
 
   const [loginRequest, setLoginRequest] = useState({
-    emailId: "",
-    password: "",
-    role: "",
-  });
-
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
-  const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+    emailId: '',
+    password: '',
+    role: '',
+  })
 
   const handleUserInput = (e) => {
-    setLoginRequest({ ...loginRequest, [e.target.name]: e.target.value });
-  };
+    setLoginRequest({ ...loginRequest, [e.target.name]: e.target.value })
+  }
 
   const loginAction = (e) => {
-    fetch("http://localhost:8080/api/user/login", {
-      method: "POST",
+    fetch('http://localhost:8080/api/user/login', {
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(loginRequest),
     })
       .then((result) => {
-        console.log("result", result);
+        console.log('result', result)
         result.json().then((res) => {
           if (res.success) {
-            console.log("Got the success response");
+            console.log('Got the success response')
 
             if (res.jwtToken !== null) {
-              if (res.user.role === "Admin") {
+              if (res.user.role === 'Admin') {
+                sessionStorage.setItem('active-admin', JSON.stringify(res.user))
+                sessionStorage.setItem('admin-jwtToken', res.jwtToken)
+              } else if (res.user.role === 'Customer') {
                 sessionStorage.setItem(
-                  "active-admin",
+                  'active-customer',
                   JSON.stringify(res.user)
-                );
-                sessionStorage.setItem("admin-jwtToken", res.jwtToken);
-              } else if (res.user.role === "Customer") {
+                )
+                sessionStorage.setItem('customer-jwtToken', res.jwtToken)
+              } else if (res.user.role === 'Seller') {
                 sessionStorage.setItem(
-                  "active-customer",
+                  'active-seller',
                   JSON.stringify(res.user)
-                );
-                sessionStorage.setItem("customer-jwtToken", res.jwtToken);
-              } else if (res.user.role === "Seller") {
+                )
+                sessionStorage.setItem('seller-jwtToken', res.jwtToken)
+              } else if (res.user.role === 'Delivery') {
                 sessionStorage.setItem(
-                  "active-seller",
+                  'active-delivery',
                   JSON.stringify(res.user)
-                );
-                sessionStorage.setItem("seller-jwtToken", res.jwtToken);
-              } else if (res.user.role === "Delivery") {
-                sessionStorage.setItem(
-                  "active-delivery",
-                  JSON.stringify(res.user)
-                );
-                sessionStorage.setItem("delivery-jwtToken", res.jwtToken);
+                )
+                sessionStorage.setItem('delivery-jwtToken', res.jwtToken)
               }
             }
 
             if (res.jwtToken !== null) {
-              setSnackbarSeverity("success");
-              setSnackbarMessage(res.responseMessage);
-              setOpenSnackbar(true);
-
+              toast.success(res.responseMessage, {
+                position: 'top-center',
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              })
               setTimeout(() => {
-                navigate("/home");
-              }, 1000); // Redirect after 3 seconds
+                window.location.href = '/home'
+              }, 1000) // Redirect after 3 seconds
             } else {
-              setSnackbarSeverity("error");
-              setSnackbarMessage(res.responseMessage);
-              setOpenSnackbar(true);
+              toast.error(res.responseMessage, {
+                position: 'top-center',
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              })
             }
           } else {
-            setSnackbarSeverity("error");
-            setSnackbarMessage(res.responseMessage);
-            setOpenSnackbar(true);
+            toast.error(res.responseMessage, {
+              position: 'top-center',
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            })
           }
-        });
+        })
       })
       .catch((error) => {
-        console.error(error);
-        setSnackbarSeverity("error");
-        setSnackbarMessage("It seems the server is down");
-        setOpenSnackbar(true);
-      });
-
-    e.preventDefault();
-  };
-  
-
-  const handleSnackbarClose = () => {
-    setOpenSnackbar(false);
-  };
+        console.error(error)
+        toast.error('It seems server is down', {
+          position: 'top-center',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+      })
+    e.preventDefault()
+  }
 
   return (
-    <Container
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-      }}
-    >
-      <Paper sx={{ p: 4, width: "25rem" }} elevation={3}>
-        <Typography
-          variant="h3" // Larger font size
-          fontFamily="Roboto" // Roboto font
-          textAlign="center"
-          sx={{ mt: 2 }}
+    <div className='pg-background'>
+      <div className='pg-blur'>
+      <div style={{ display: 'flex', justifyContent: 'center', minHeight: '100vh' }}>
+      
+        <div
+          className="form-card border-color custom-bg glass"
+          style={{ width: '35rem', height: '30rem', marginTop:'100px'} }
         >
-          Login Page
-        </Typography>
-        <form>
-          <FormControl fullWidth sx={{ mt: 2 }}>
-            <InputLabel htmlFor="role">User Role</InputLabel>
-            <Select
-              id="role"
-              name="role"
-              value={loginRequest.role}
-              onChange={handleUserInput}
+          <div className="container-fluid">
+            <div
+              className="card-header custom-bg-text mt-2 d-flex justify-content-center align-items-center"
+              style={{
+                borderRadius: '1em',
+                height: '38px'              }}
             >
-                <MenuItem value="">User Role</MenuItem> {/* Placeholder */}
-              <MenuItem value="Admin">Admin</MenuItem>
-              <MenuItem value="Customer">Customer</MenuItem>
-              <MenuItem value="Seller">Seller</MenuItem>
-            </Select>
-          </FormControl>
+              <h2 className="card-title" style={{marginTop: '60px'}}>Login Page</h2>
+            </div>
+            <div className="card-body mt-5">
+              <form>
+                <div class="mb-3 text-color" >
+                  <label for="role" class="form-label" >
+                    <b>User Role</b>
+                  </label>
+                  <select
+                    onChange={handleUserInput}
+                    className="form-control"
+                    name="role"
+                    
+                  >
+                    <option value="0">Select Role</option>
+                    <option value="Admin"> Admin </option>
+                    <option value="Customer"> Customer </option>
+                    <option value="Seller"> Seller </option>
+                  </select>
+                </div>
 
-          <TextField
-            label="User Name"
-            id="emailId"
-            name="emailId"
-            type="text"
-            value={loginRequest.emailId}
-            onChange={handleUserInput}
-            fullWidth
-            sx={{ mt: 2 }}
-          />
+                <div className="mb-3 text-color">
+                  <label for="emailId" class="form-label">
+                    <b>Email Id</b>
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="emailId"
+                    name="emailId"
+                    onChange={handleUserInput}
+                    value={loginRequest.emailId}
+                  />
+                </div>
+                <div className="mb-3 text-color">
+                  <label for="password" className="form-label">
+                    <b>Password</b>
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    name="password"
+                    onChange={handleUserInput}
+                    value={loginRequest.password}
+                    autoComplete="on"
+                  />
+                </div>
+                <div className="d-flex aligns-items-center justify-content-center mb-2">
+                  <button
+                    type="submit"
+                    className="btn bg-color custom-bg-text"
+                    onClick={loginAction}
+                  >
+                    Login
+                  </button>
+                </div>
+                <ToastContainer />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  )
+}
 
-          <TextField
-            label="Password"
-            id="password"
-            name="password"
-            type="password"
-            value={loginRequest.password}
-            onChange={handleUserInput}
-            autoComplete="on"
-            fullWidth
-            sx={{ mt: 2 }}
-          />
-
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              mt: 2,
-            }}
-          >
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={loginAction}
-            >
-              Login Test
-            </Button>
-          </Box>
-
-          <Snackbar
-            open={openSnackbar}
-            autoHideDuration={3000}
-            onClose={handleSnackbarClose}
-          >
-            <Alert onClose={handleSnackbarClose} severity={snackbarSeverity}>
-              {snackbarMessage}
-            </Alert>
-          </Snackbar>
-        </form>
-      </Paper>
-    </Container>
-  );
-};
-
-export default UserLoginForm;
+export default UserLoginForm

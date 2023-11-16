@@ -44,7 +44,7 @@ const BarChart = ({ isDashboard = false }) => {
           },
         },
       }}
-      keys={["Sneakers", "Heels", "Sandals", "Sports", "Womens"]}
+      keys={["Electronics & Gadgets", "Fashion & Apparel", "Toys & Games", "Sports & Outdoors", "Beauty & Personal Care"]}
       indexBy="country"
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       padding={0.3}
