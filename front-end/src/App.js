@@ -40,13 +40,6 @@ import Allproduct from './Adminside/pages/product/Allproduct'
 import Allseller from './Adminside/pages/seller/Allseller'
 // import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
-import ProductCards from './glassmorphism/ProductCards'
-import UploadFile from './UploadFile'
-import NavBar from './components/NavBar'
-import ShoppingCart from './components/ShoppingCart'
-import Header from './NavbarComponent/Header'
-import LoginPage from './pages/Auth/LoginPage'
-
 function App() {
   const [theme, colorMode] = useMode()
   const [isSidebar, setIsSidebar] = useState(true)
