@@ -1,71 +1,74 @@
-import { useState, useEffect } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
-import Header from './NavbarComponent/Header'
-import AdminRegisterForm from './UserComponent/AdminRegisterForm'
-import UserLoginForm from './UserComponent/UserLoginForm'
-import UserRegister from './UserComponent/UserRegister'
-import AboutUs from './PageComponent/AboutUs'
-import HomePage from './PageComponent/HomePage'
-import AddCategoryForm from './CategoryComponent/AddCategoryForm'
-import AddProductForm from './ProductComponent/AddProductForm'
-import Product from './ProductComponent/Product'
-import AddProductReview from './ReviewComponent/AddProductReview'
-import GetProductReviews from './ReviewComponent/GetProductReviews'
-import SellerProducts from './ProductComponent/SellerProducts'
-import ViewSellerProducts from './ProductComponent/ViewSellerProducts'
-import UpdateProductForm from './ProductComponent/UpdateProductForm'
-import ViewAllCategories from './CategoryComponent/ViewAllCategories'
-import UpdateCategoryForm from './CategoryComponent/UpdateCategoryForm'
-import ViewAllProducts from './ProductComponent/ViewAllProducts'
-import AddCardDetails from './OrderComponent/AddCardDetails'
-import ViewMyOrders from './OrderComponent/ViewMyOrders'
-import ViewAllOrders from './OrderComponent/ViewAllOrders'
-import ViewSellerDeliveryPerson from './UserComponent/ViewSellerDeliveryPerson'
-import ViewSellerOrders from './OrderComponent/ViewSellerOrders'
-import ViewAllSellers from './UserComponent/ViewAllSellers'
-import ViewAllDeliveryPersons from './UserComponent/ViewAllDeliveryPersons'
-import ViewAllCustomers from './UserComponent/ViewAllCustomers'
-import ViewDeliveryOrders from './OrderComponent/ViewDeliveryOrders'
-import ViewMyCart from './CartComponent/ViewMyCart'
-import Sidebar from './Adminside/pages/global/SideBar'
-import Dashboard from './Adminside/pages/dashboard/dashboard'
-import Category from './Adminside/pages/category/category'
-import Bar from './Adminside/pages/bar/bar'
-import Form from './Adminside/pages/form/form'
-import Line from './Adminside/pages/line/line'
-import { CssBaseline, ThemeProvider } from '@mui/material'
-import { ColorModeContext, useMode } from './theme'
-import Allorders from './Adminside/pages/orders/Allorder'
-import Allproduct from './Adminside/pages/product/Allproduct'
-import Allseller from './Adminside/pages/seller/Allseller'
-// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { useState, useEffect } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import Header from "./NavbarComponent/Header";
+import AdminRegisterForm from "./UserComponent/AdminRegisterForm";
+import UserLoginForm from "./UserComponent/UserLoginForm";
+import UserRegister from "./UserComponent/UserRegister";
+import AboutUs from "./PageComponent/AboutUs";
+import HomePage from "./PageComponent/HomePage";
+import AddCategoryForm from "./CategoryComponent/AddCategoryForm";
+import AddProductForm from "./ProductComponent/AddProductForm";
+import Product from "./ProductComponent/Product";
+import AddProductReview from "./ReviewComponent/AddProductReview";
+import GetProductReviews from "./ReviewComponent/GetProductReviews";
+import SellerProducts from "./ProductComponent/SellerProducts";
+import ViewSellerProducts from "./ProductComponent/ViewSellerProducts";
+import UpdateProductForm from "./ProductComponent/UpdateProductForm";
+import ViewAllCategories from "./CategoryComponent/ViewAllCategories";
+import UpdateCategoryForm from "./CategoryComponent/UpdateCategoryForm";
+import ViewAllProducts from "./ProductComponent/ViewAllProducts";
+import AddCardDetails from "./OrderComponent/AddCardDetails";
+import ViewMyOrders from "./OrderComponent/ViewMyOrders";
+import ViewAllOrders from "./OrderComponent/ViewAllOrders";
+import ViewSellerDeliveryPerson from "./UserComponent/ViewSellerDeliveryPerson";
+import ViewSellerOrders from "./OrderComponent/ViewSellerOrders";
+import ViewAllSellers from "./UserComponent/ViewAllSellers";
+import ViewAllDeliveryPersons from "./UserComponent/ViewAllDeliveryPersons";
+import ViewAllCustomers from "./UserComponent/ViewAllCustomers";
+import ViewDeliveryOrders from "./OrderComponent/ViewDeliveryOrders";
+import ViewMyCart from "./CartComponent/ViewMyCart";
+import Sidebar from "./Adminside/pages/global/SideBar";
+import Dashboard from "./Adminside/pages/dashboard/dashboard";
+import Category from "./Adminside/pages/category/category";
+import Bar from "./Adminside/pages/bar/bar";
+import Form from "./Adminside/pages/form/form";
+import Line from "./Adminside/pages/line/line";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ColorModeContext, useMode } from "./theme";
+import Allorders from "./Adminside/pages/orders/Allorder";
+import Allproduct from "./Adminside/pages/product/Allproduct";
+import Allseller from "./Adminside/pages/seller/Allseller";
+// import LoginPage from "./pages/Auth/LoginPage";
+
+
 
 function App() {
-  const [theme, colorMode] = useMode()
-  const [isSidebar, setIsSidebar] = useState(true)
-  const navigate = useNavigate()
+  const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
+  const navigate = useNavigate();
 
-  const user = JSON.parse(sessionStorage.getItem('active-customer'))
-  const admin = JSON.parse(sessionStorage.getItem('active-admin'))
-  const seller = JSON.parse(sessionStorage.getItem('active-seller'))
+  const user = JSON.parse(sessionStorage.getItem("active-customer"));
+  const admin = JSON.parse(sessionStorage.getItem("active-admin"));
+  const seller = JSON.parse(sessionStorage.getItem("active-seller"));
 
-  // Redirect to /dashboard if the user is an admin
-  // useEffect(() => {
-  //   if (admin && admin.role === "Admin") {
-  //     navigate("/dashboard");
-  //   }
-  // }, [admin, navigate]);
+    // Redirect to /dashboard if the user is an admin
+    // useEffect(() => {
+    //   if (admin && admin.role === "Admin") {
+    //     navigate("/dashboard");
+    //   }
+    // }, [admin, navigate]);
 
+    
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          {admin && admin.role === 'Admin' && <Sidebar />}
+          {admin && admin.role === "Admin" && <Sidebar />}
           {/* <Sidebar isSidebar={isSidebar} /> */}
           <main className="content">
             {/* <Topbar setIsSidebar={setIsSidebar} /> */}
-            {admin && admin.role !== 'Admin' && <Header />}
+            {admin && admin.role !== "Admin" && <Header />}
             <Header />
             <Routes>
               {/* <Route path="/login" element={<LoginPage />} /> */}
@@ -79,7 +82,7 @@ function App() {
               <Route path="/form" element={<Form />} />
               <Route path="/bar" element={<Bar />} />
               <Route path="/line" element={<Line />} />
-              {/* <Route path="/adminregister" element={<AdminRegisterForm />} /> */}
+               {/* <Route path="/adminregister" element={<AdminRegisterForm />} /> */}
               {/* <Route path="/viewallseller" element={<ViewAllSellers />} /> */}
 
               {/* .................................. */}
@@ -238,8 +241,7 @@ function App() {
     //     />
     //   </Routes>
     // </div>
-  )
+  );
 }
 
-export default App
-
+export default App;
