@@ -211,7 +211,7 @@ const Product = () => {
               <div className="text-center text-color">
                 <p>
                   <span>
-                    <h4>Price : RM {product.price}</h4>
+                    <h4 style={{textAlign:'left'}}>Price : RM {product.price}</h4>
                   </span>
                 </p>
               </div>

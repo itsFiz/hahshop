@@ -246,7 +246,8 @@ const ViewMyCart = () => {
   }
 
   return (
-    <div className="mt-3">
+    <div className="mt-3 pg-background">
+      <div className="pg-blur">
       <div
         className="card form-card ms-2 me-2 mb-5 custom-bg shadow-lg"
         style={{
@@ -254,7 +255,7 @@ const ViewMyCart = () => {
         }}
       >
         <div
-          className="card-header custom-bg-text text-center bg-color"
+          className="card-header custom-bg-text text-center bg-color glass"
           style={{
             borderRadius: '1em',
             height: '50px',
@@ -268,7 +269,7 @@ const ViewMyCart = () => {
             overflowY: 'auto',
           }}
         >
-          <div className="table-responsive">
+          <div className="table-responsive glass">
             <table className="table  text-color text-center">
               <thead className="table-bordered border-color bg-color custom-bg-text">
                 <tr>
@@ -340,7 +341,7 @@ const ViewMyCart = () => {
             </table>
           </div>
         </div>
-        <div className="card-footer custom-bg">
+        <div className="card-footer custom-bg glass">
           <div className="float-right">
             <div
               className="text-color me-2"
@@ -363,6 +364,7 @@ const ViewMyCart = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }
