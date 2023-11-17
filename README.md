@@ -31,7 +31,7 @@ Slide Link: https://www.canva.com/design/DAFyI8mp_64/Fp6Z_3ePEjJO5PoFov5KPQ/view
 
 👤 **Hafiz Kadir**
 
-- NavBar Role Based Access Control - (All side)
+- NavBar Role Based Access Control - 
 - "Search product by category", - (Customer side)
 - "Search product by name", - (Customer side)
 - "Add Product to Cart", - (Customer Side)
@@ -41,7 +41,7 @@ Slide Link: https://www.canva.com/design/DAFyI8mp_64/Fp6Z_3ePEjJO5PoFov5KPQ/view
 - "View orders history" - (Customer side)
 - "Cancel orders" - (Customer side)
 - "Review product" - (Customer side)
-
+(All side)
 
 👤 **Alif Danish**
 - "Create Category", - (Admin Side)
@@ -55,8 +55,8 @@ Slide Link: https://www.canva.com/design/DAFyI8mp_64/Fp6Z_3ePEjJO5PoFov5KPQ/view
 
 
 👤 **Harith Nasahruddin**
-- Login,
-- User Registration,
+- "Login", (All side)
+- "User Registration", (All side)
 - "Add new product", - (Seller side)
 - "Update product details", - (Seller side)
 - "Update Order Status", - (Seller Side)
