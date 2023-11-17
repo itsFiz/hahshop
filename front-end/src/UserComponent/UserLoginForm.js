@@ -119,12 +119,13 @@ const UserLoginForm = () => {
         >
           <div className="container-fluid">
             <div
-              className="card-header custom-bg-text mt-2 d-flex justify-content-center align-items-center"
+              className="card-header bg-color custom-bg-text mt-2 d-flex justify-content-center align-items-center"
               style={{
                 borderRadius: '1em',
-                height: '38px'              }}
+                height: '45px' ,
+                         }}
             >
-              <h2 className="card-title" style={{marginTop: '60px'}}>Login Page</h2>
+              <h2 className="card-title" >Login Page</h2>
             </div>
             <div className="card-body mt-5">
               <form>

@@ -119,14 +119,14 @@ const UserRegister = () => {
       <div className="mt-2 d-flex aligns-items-center justify-content-center ms-2 me-2 mb-2">
         <div
           className="form-card border-color text-color custom-bg glass"
-          style={{ width: '50rem', marginTop: '50px', paddingTop: '50px' }}
+          style={{ width: '50rem', marginTop: '50px' }}
         >
           <div className="container-fluid">
             <div
-              className="card-header custom-bg-text mt-2 d-flex justify-content-center align-items-center"
+              className="card-header bg-color custom-bg-text mt-2 d-flex justify-content-center align-items-center"
               style={{
                 borderRadius: '1em',
-                height: '45px',
+                height: '65px',
               }}
             >
               <h2 className="card-title" >Register Here!</h2>

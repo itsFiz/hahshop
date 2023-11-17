@@ -148,13 +148,13 @@ const AddProductForm = () => {
         >
           <div className="container-fluid">
             <div
-              className=" custom-bg-text mt-5 text-center"
+              className=" custom-bg-text mt-5 text-center bg-color"
               style={{
                 borderRadius: '1em',
                 height: '45px',
               }}
             >
-              <h2 class="card-title">Add Product</h2>
+              <h2 class="card-title" style={{paddingTop:'5px'}}>Add Product</h2>
             </div>
             <div class="card-body text-color">
               <form className="row g-3">

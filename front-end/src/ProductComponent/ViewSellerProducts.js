@@ -138,7 +138,7 @@ const ViewSellerProducts = () => {
         >
           <div className="table-responsive glass">
             <table className="table  text-color text-center">
-              <thead className="table-bordered border-color glass custom-bg-text">
+              <thead className="table-bordered border-color bg-color custom-bg-text">
                 <tr>
                   <th scope="col">Product</th>
                   <th scope="col">Name</th>
