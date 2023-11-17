@@ -25,32 +25,45 @@
 
 Hahshop is a multivendor e-commerce platform where administrator can add product categories.  Seller can register and add products to the system under specific categories. Multiple sellers can add their products, visible to customers who can search and view products. Customers can add products to their cart and place orders. Hahshop administrators can access complete order details for all customers from all sellers.
 
+Slide Link: <a href = 'https://www.canva.com/design/DAFyI8mp_64/Fp6Z_3ePEjJO5PoFov5KPQ/view?utm_content=DAFyI8mp_64&utm_campaign=designshare&utm_medium=link&utm_source=editor'>
+
 ## 👥 Authors <a name="authors"></a>
 
 👤 **Hafiz Kadir**
 
-- "Add new product", - (Seller side)
-- "Update product details", - (Seller side)
-- "Search product", - (User side)
-- "View item in cart",- (User side)
-- "View orders history" - (User side)
+- NavBar Role Based Access Control - (All side)
+- "Search product by category", - (Customer side)
+- "Search product by name", - (Customer side)
+- "Add Product to Cart", - (Customer Side)
+- "View item in cart",- (Customer side)
+- "Update cart",- (Customer side)
+- "Order product" - (Customer side)
+- "View orders history" - (Customer side)
+- "Cancel orders" - (Customer side)
+- "Review product" - (Customer side)
 
 
 👤 **Alif Danish**
-- "Update User Profile", - (User Side)
-- "View Selling Product", - (Seller Side)
-- "Update Order Status", - (Seller Side)
-- "Add Product to Cart", - (User Side)
+- "Create Category", - (Admin Side)
+- "Create Admin", - (Admin Side)
+- "View All Product", - (Admin Side)
+- "View all orders", (Admin Side)
+- "Ban seller" - (Admin Side)
 - "Dashboard Statistics" - (Admin Side)
+- "Bar chart for sales per category" - (Admin Side)
+- "Line chart for sales per month" - (Admin Side)
 
 
 👤 **Harith Nasahruddin**
 - Login,
 - User Registration,
-- View all product,
-- Cancel orders,
-- Ban seller,
-- View all orders
+- "Add new product", - (Seller side)
+- "Update product details", - (Seller side)
+- "Update Order Status", - (Seller Side)
+- Delete product,(Seller Side)
+- Cancel orders,(Seller Side)
+
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
