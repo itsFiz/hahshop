@@ -101,11 +101,11 @@ You may also see any lint errors in the console.
 
 
 👤 **Alif Danish**
-"Update User Profile", - (User Side)
-"View Selling Product", - (Seller Side)
-"Update Order Status", - (Seller Side)
-"Add Product to Cart", - (User Side)
-"Dashboard Statistics" - (Admin Side)
+- "Update User Profile", - (User Side)
+- "View Selling Product", - (Seller Side)
+- "Update Order Status", - (Seller Side)
+- "Add Product to Cart", - (User Side)
+- "Dashboard Statistics" - (Admin Side)
 
 
 👤 **Harith Nasahruddin**
