@@ -81,7 +81,7 @@ Slide Link: https://www.canva.com/design/DAFyI8mp_64/Fp6Z_3ePEjJO5PoFov5KPQ/view
 </details>
 
 ### App Screenshot
-![screenshot](https://gitlab.com/azman1204/uob-ecommerce/-/raw/main/hahlandingpage.png)
+![screenshot](https://github.com/itsFiz/hahshop/blob/main/hahlandingpage.png?raw=true)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
