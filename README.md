@@ -7,15 +7,15 @@
 
 - [Table of Contents](#-table-of-contents)
 - [ HahShop - Multivendor E-commerce Portal](#-about-project-)
+ - [👥 Authors ](#-authors-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
-  - [👥 Authors ](#-authors-)
+ 
   
  
 
@@ -25,6 +25,32 @@
 
 Hahshop is a multivendor e-commerce platform where administrator can add product categories.  Seller can register and add products to the system under specific categories. Multiple sellers can add their products, visible to customers who can search and view products. Customers can add products to their cart and place orders. Hahshop administrators can access complete order details for all customers from all sellers.
 
+## 👥 Authors <a name="authors"></a>
+
+👤 **Hafiz Kadir**
+
+- "Add new product", - (Seller side)
+- "Update product details", - (Seller side)
+- "Search product", - (User side)
+- "View item in cart",- (User side)
+- "View orders history" - (User side)
+
+
+👤 **Alif Danish**
+- "Update User Profile", - (User Side)
+- "View Selling Product", - (Seller Side)
+- "Update Order Status", - (Seller Side)
+- "Add Product to Cart", - (User Side)
+- "Dashboard Statistics" - (Admin Side)
+
+
+👤 **Harith Nasahruddin**
+- Login,
+- User Registration,
+- View all product,
+- Cancel orders,
+- Ban seller,
+- View all orders
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -89,31 +115,6 @@ The page will reload when you make changes.
 
 You may also see any lint errors in the console.
 
-## 👥 Authors <a name="authors"></a>
 
-👤 **Hafiz Kadir**
-
-- "Add new product", - (Seller side)
-- "Update product details", - (Seller side)
-- "Search product", - (User side)
-- "View item in cart",- (User side)
-- "View orders history" - (User side)
-
-
-👤 **Alif Danish**
-- "Update User Profile", - (User Side)
-- "View Selling Product", - (Seller Side)
-- "Update Order Status", - (Seller Side)
-- "Add Product to Cart", - (User Side)
-- "Dashboard Statistics" - (Admin Side)
-
-
-👤 **Harith Nasahruddin**
-- Login,
-- User Registration,
-- View all product,
-- Cancel orders,
-- Ban seller,
-- View all orders
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
