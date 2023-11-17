@@ -42,7 +42,7 @@ Hahshop is a multivendor e-commerce platform where administrator can add product
 </details>
 
 ### App Screenshot
-![screenshot](https://gitlab.com/azman1204/uob-ecommerce/-/blob/main/hahlandingpage.png)
+![screenshot](https://gitlab.com/azman1204/uob-ecommerce/-/raw/main/hahlandingpage.png)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
