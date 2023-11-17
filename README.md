@@ -25,7 +25,7 @@
 
 Hahshop is a multivendor e-commerce platform where administrator can add product categories.  Seller can register and add products to the system under specific categories. Multiple sellers can add their products, visible to customers who can search and view products. Customers can add products to their cart and place orders. Hahshop administrators can access complete order details for all customers from all sellers.
 
-Slide Link: <a href = 'https://www.canva.com/design/DAFyI8mp_64/Fp6Z_3ePEjJO5PoFov5KPQ/view?utm_content=DAFyI8mp_64&utm_campaign=designshare&utm_medium=link&utm_source=editor'>
+Slide Link: https://www.canva.com/design/DAFyI8mp_64/Fp6Z_3ePEjJO5PoFov5KPQ/view?utm_content=DAFyI8mp_64&utm_campaign=designshare&utm_medium=link&utm_source=editor
 
 ## 👥 Authors <a name="authors"></a>
 
