@@ -95,81 +95,86 @@ const AddCardDetails = () => {
   }
 
   return (
-    <div>
-      <div class="mt-2 d-flex aligns-items-center justify-content-center">
-        <div class="card form-card border-color" style={{ width: '25rem' }}>
-          <div className="card-header bg-color custom-bg-text">
-            <h5 class="card-title text-center">Payment Details</h5>
-          </div>
-          <div class="card-body text-color custom-bg">
-            <form onSubmit={payForOrder}>
-              <div class="mb-3">
-                <label for="name" class="form-label">
-                  <b> Name on Card</b>
-                </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  name="cardName"
-                  onChange={handleCardInput}
-                  value={card.cardName}
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="cardNumber" class="form-label">
-                  <b> Card Number</b>
-                </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="cardNumber"
-                  name="cardNumber"
-                  onChange={handleCardInput}
-                  value={card.cardNumber}
-                  required
-                />
-              </div>
+    <div className="pg-background">
+      <div className="pg-blur">
+        <div class="mt-2 d-flex aligns-items-center justify-content-center">
+          <div
+            class="card form-card border-color glass"
+            style={{ width: '25rem', marginTop: '80px' }}
+          >
+            <div className="card-header bg-color custom-bg-text">
+              <h5 class="card-title text-center">Payment Details</h5>
+            </div>
+            <div class="card-body text-color custom-bg">
+              <form onSubmit={payForOrder}>
+                <div class="mb-3">
+                  <label for="name" class="form-label">
+                    <b> Name on Card</b>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="cardName"
+                    onChange={handleCardInput}
+                    value={card.cardName}
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="cardNumber" class="form-label">
+                    <b> Card Number</b>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cardNumber"
+                    name="cardNumber"
+                    onChange={handleCardInput}
+                    value={card.cardNumber}
+                    required
+                  />
+                </div>
 
-              <div class="mb-3">
-                <label for="validThrough" class="form-label">
-                  <b>Valid Through</b>
-                </label>
+                <div class="mb-3">
+                  <label for="validThrough" class="form-label">
+                    <b>Valid Through</b>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="validThrough"
+                    name="validThrough"
+                    onChange={handleCardInput}
+                    value={card.validThrough}
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="cvv" class="form-label">
+                    <b>CVV</b>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cvv"
+                    name="cvv"
+                    onChange={handleCardInput}
+                    value={card.cvv}
+                    required
+                  />
+                </div>
+
                 <input
-                  type="text"
-                  class="form-control"
-                  id="validThrough"
-                  name="validThrough"
-                  onChange={handleCardInput}
-                  value={card.validThrough}
-                  required
+                  type="submit"
+                  class="btn custom-bg-text bg-color"
+                  value={'Pay RM ' + priceToPay}
                 />
-              </div>
 
-              <div class="mb-3">
-                <label for="cvv" class="form-label">
-                  <b>CVV</b>
-                </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="cvv"
-                  name="cvv"
-                  onChange={handleCardInput}
-                  value={card.cvv}
-                  required
-                />
-              </div>
-
-              <input
-                type="submit"
-                class="btn custom-bg-text bg-color"
-                value={'Pay RM ' + priceToPay}
-              />
-
-              <ToastContainer />
-            </form>
+                <ToastContainer />
+              </form>
+            </div>
           </div>
         </div>
       </div>

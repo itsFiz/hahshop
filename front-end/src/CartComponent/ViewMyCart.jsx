@@ -246,119 +246,121 @@ const ViewMyCart = () => {
   }
 
   return (
-    <div className="mt-3">
-      <div
-        className="card form-card ms-2 me-2 mb-5 custom-bg shadow-lg"
-        style={{
-          height: '40rem',
-        }}
-      >
+    <div className="mt-3 pg-background">
+      <div classname="pg-blur">
         <div
-          className="card-header custom-bg-text text-center bg-color"
+          className="card form-card ms-2 me-2 mb-5 custom-bg shadow-lg"
           style={{
-            borderRadius: '1em',
-            height: '50px',
+            height: '40rem',
           }}
         >
-          <h2>My Cart</h2>
-        </div>
-        <div
-          className="card-body"
-          style={{
-            overflowY: 'auto',
-          }}
-        >
-          <div className="table-responsive">
-            <table className="table  text-color text-center">
-              <thead className="table-bordered border-color bg-color custom-bg-text">
-                <tr>
-                  <th scope="col">Product</th>
-                  <th scope="col">Product Name</th>
-                  <th scope="col">Category</th>
-                  <th scope="col">Seller</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {carts.map((cart) => {
-                  return (
-                    <tr>
-                      <td>
-                        <img
-                          src={
-                            'http://localhost:8080/api/product/' +
-                            cart.product.image1
-                          }
-                          class="img-fluid"
-                          alt="product_pic"
-                          style={{
-                            maxWidth: '90px',
-                          }}
-                        />
-                      </td>
-                      <td>
-                        <b>{cart.product.name}</b>
-                      </td>
-                      <td>
-                        <b>{cart.product.category.name}</b>
-                      </td>
-                      <td>
-                        <b>{cart.product.seller.firstName}</b>
-                      </td>
-                      <td>
-                        <b>{cart.product.price}</b>
-                      </td>
-                      <td>
-                        <button
-                          onClick={() => decrementCart(cart)}
-                          className="btn btn-sm bg-color custom-bg-text me-2"
-                        >
-                          -
-                        </button>
-                        <b>{cart.quantity}</b>
-                        <button
-                          onClick={() => incrementCart(cart)}
-                          className="btn btn-sm bg-color custom-bg-text ms-2"
-                        >
-                          +
-                        </button>
-                      </td>
-                      <td>
-                        <button
-                          onClick={() => deleteCart(cart.id)}
-                          className="btn btn-sm bg-color custom-bg-text ms-2"
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
+          <div
+            className="card-header custom-bg-text text-center bg-color glass"
+            style={{
+              borderRadius: '1em',
+              height: '50px',
+            }}
+          >
+            <h2>My Cart</h2>
           </div>
-        </div>
-        <div className="card-footer custom-bg">
-          <div className="float-right">
-            <div
-              className="text-color me-2"
-              style={{
-                textAlign: 'right',
-              }}
-            >
-              <h5>Total Price: RM {cartAmount}</h5>
+          <div
+            className="card-body"
+            style={{
+              overflowY: 'auto',
+            }}
+          >
+            <div className="table-responsive glass">
+              <table className="table  text-color text-center">
+                <thead className="table-bordered border-color bg-color custom-bg-text">
+                  <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Seller</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {carts.map((cart) => {
+                    return (
+                      <tr>
+                        <td>
+                          <img
+                            src={
+                              'http://localhost:8080/api/product/' +
+                              cart.product.image1
+                            }
+                            class="img-fluid"
+                            alt="product_pic"
+                            style={{
+                              maxWidth: '90px',
+                            }}
+                          />
+                        </td>
+                        <td>
+                          <b>{cart.product.name}</b>
+                        </td>
+                        <td>
+                          <b>{cart.product.category.name}</b>
+                        </td>
+                        <td>
+                          <b>{cart.product.seller.firstName}</b>
+                        </td>
+                        <td>
+                          <b>{cart.product.price}</b>
+                        </td>
+                        <td>
+                          <button
+                            onClick={() => decrementCart(cart)}
+                            className="btn btn-sm bg-color custom-bg-text me-2"
+                          >
+                            -
+                          </button>
+                          <b>{cart.quantity}</b>
+                          <button
+                            onClick={() => incrementCart(cart)}
+                            className="btn btn-sm bg-color custom-bg-text ms-2"
+                          >
+                            +
+                          </button>
+                        </td>
+                        <td>
+                          <button
+                            onClick={() => deleteCart(cart.id)}
+                            className="btn btn-sm bg-color custom-bg-text ms-2"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
             </div>
-
-            <div className="float-end me-2">
-              <button
-                type="submit"
-                className="btn bg-color custom-bg-text mb-3"
-                onClick={checkout}
+          </div>
+          <div className="card-footer custom-bg">
+            <div className="float-right">
+              <div
+                className="text-color me-2"
+                style={{
+                  textAlign: 'right',
+                }}
               >
-                Checkout
-              </button>
+                <h5>Total Price: RM {cartAmount}</h5>
+              </div>
+
+              <div className="float-end me-2">
+                <button
+                  type="submit"
+                  className="btn bg-color custom-bg-text mb-3"
+                  onClick={checkout}
+                >
+                  Checkout
+                </button>
+              </div>
             </div>
           </div>
         </div>
