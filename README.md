@@ -55,20 +55,13 @@ Hahshop is a multivendor e-commerce platform where administrator can add product
 To get a local copy up and running, follow these steps.
 
 
-```
-### Setup
-
-Clone this repository using the GitHub link provided below.
-Change
-
 
 ### Install
 
 In the terminal, go to your file directory and run this command.
 
-```
+
 $ git clone https://gitlab.com/azman1204/uob-ecommerce.git
-```
 
 
 
@@ -85,9 +78,10 @@ In backend/application.properties
 change the com.hahshop.image.folder.path=(C:/Users/ACER/Desktop/FIZ/UOB Training/hahshop-backend/src/main/resources/images) to your computer path
 
 In the project directory, you can run:
-```
+
+
 $ npm start
-```
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
